@@ -1,6 +1,7 @@
 package com.brite_erp.pages;
 
 
+import com.brite_erp.utilities.BrowserUtils;
 import com.brite_erp.utilities.Driver;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
@@ -8,6 +9,7 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
 import java.io.File;
+import java.util.ArrayList;
 import java.util.List;
 
 public class QuotationRequest {
@@ -21,6 +23,11 @@ public class QuotationRequest {
     @FindBy(xpath = "//a[@data-menu='504']")
     public WebElement PurchasesTab;
 
+    @FindBy(xpath = "(//div[@class='btn-group']//button)[3]")
+    public WebElement ActionTabOnDetails;
+
+
+
     @FindBy(xpath = "//td[@title='Total amount']")
     public WebElement totalAmount;
 
@@ -29,11 +36,19 @@ public class QuotationRequest {
 
     @FindBy(xpath = "(//div[@class='btn-group']//button)[1]")
     public WebElement printTab;
+
     @FindBy(xpath = "(//div[@class='btn-group']//button)[2]")
     public WebElement actionTab;
 
     @FindBy(xpath = "(//div[@class='btn-group']//ul//li)[1]")
     public WebElement purchaseOrderPrint;
+
+    @FindBy(xpath = "//button[.='Cancel']")
+    public WebElement cancel;
+
+
+    @FindBy(xpath = "(//div[@class='btn-group']//ul//li)[2]")
+    public WebElement RequestForQuotationPrint;
 
     @FindBy(xpath = "(//div[@class='btn-group']//ul)[2]//li[1]")
     public WebElement export;
@@ -53,12 +68,60 @@ public class QuotationRequest {
     @FindBy(xpath = "//div[@class='o_notification_content']")
     public WebElement printMessage;
 
+    @FindBy(xpath = "(//div[@class='btn-group']//ul)[2]//li[2]")
+    public WebElement delete;
 
+
+    @FindBy(xpath = "//a[contains(text(),'Delete')]")
+    public WebElement deleteOnDetails;
+
+    @FindBy(xpath = "//span[(contains(text(),'Ok'))]")
+    public WebElement OK;
+
+
+    public List<Double> indvPrices() throws InterruptedException {
+
+        List<WebElement> as=Driver.getDriver().findElements(By.xpath("//tbody/tr/td[8]/span"));
+        // System.out.println(as.size());
+        List<Double> prices=new ArrayList<>();
+
+        for (int i=0;i<as.size();i++) {
+            BrowserUtils.scrollToElement(Driver.getDriver().findElement(By.xpath("//tbody/tr["+(i+1)+"]/td[8]/span")));
+            BrowserUtils.waitForVisibility(Driver.getDriver().findElement(By.xpath("//tbody/tr["+(i+1)+"]/td[8]/span")),7);
+            prices.add(Double.valueOf(Driver.getDriver().findElement(By.xpath("//tbody/tr["+(i+1)+"]/td[8]/span"))
+                    .getText().substring(2).replace(",","").trim()));
+        }
+
+        return prices;
+    }
+
+    public double getTotalAmount( List<Double> prices)
+    {
+        double priceTotal=0;
+        for(int i=0;i<prices.size();i++)
+        {
+            priceTotal+=prices.get(i);
+        }
+        System.out.println(priceTotal);
+        return priceTotal;
+    }
+//
+
+    public WebElement ChangeView(String view)
+    {
+        return Driver.getDriver().findElement(By.xpath("//button[@data-view-type='"+view+"']"));
+    }
     public WebElement PickAQuote(int row)
     {
         Driver.getDriver().findElement(By.xpath("//table//tbody//tr["+row+"]//td[1]")).click();
         return Driver.getDriver().findElement(By.xpath("//table//tbody//tr["+row+"]//td[7]"));
     }
+
+//    public WebElement OpenQuoteDetails(int row)
+//    {
+//        Driver.getDriver().findElement(By.xpath("//table//tbody//tr["+row+"]//td[1]")).click();
+//        return Driver.getDriver().findElement(By.xpath("//table//tbody//tr["+row+"]//td[7]"));
+//    }
 
     public boolean isFileDownloaded(String downloadPath, String fileName) {
         File dir = new File(downloadPath);

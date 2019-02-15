@@ -5,7 +5,7 @@ import com.brite_erp.utilities.Driver;
 import com.brite_erp.utilities.Pages;
 import cucumber.api.Scenario;
 import cucumber.api.java.After;
-import org.junit.Before;
+import cucumber.api.java.Before;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
@@ -14,19 +14,19 @@ import java.util.concurrent.TimeUnit;
 
 public class Hooks {
 
-    protected WebDriver driver;
 
 
-   // @Before
+
+    @Before
     public void setUp() throws InterruptedException {
-        driver = Driver.getDriver();
-        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
-       driver.manage().window().maximize();
-        driver.get(ConfigurationReader.getProperty("url"));
-        Thread.sleep(15000);
+       // driver = Driver.getDriver();
+        Driver.getDriver().manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+        Driver.getDriver().manage().window().maximize();
+        /*driver.get(ConfigurationReader.getProperty("url"));
+        Thread.sleep(15000);*/
     }
 
-  //  @After
+   @After
     public void tearDown(Scenario scenario){
         System.out.println("I am reporting the results");
 
