@@ -12,7 +12,7 @@ import org.junit.runner.RunWith;
         features ="src/test/resources/Purchases/",
         glue = "com/brite_erp/step_definitions"
         ,tags = "@Run"
-       // ,dryRun = true
+     //  ,dryRun = true
         )
 public class PurchasesRunner {
 }

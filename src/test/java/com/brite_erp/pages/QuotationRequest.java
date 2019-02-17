@@ -26,7 +26,14 @@ public class QuotationRequest {
     @FindBy(xpath = "(//div[@class='btn-group']//button)[3]")
     public WebElement ActionTabOnDetails;
 
+    @FindBy(xpath = "//a[contains(text(),'Deliveries')]")
+    public WebElement deliveriesTab;
 
+    @FindBy(css = "input[name*='date_order']")
+    public WebElement orderDate;
+
+    @FindBy(css = "input[name*='date_planned']")
+    public WebElement scheduledDate;
 
     @FindBy(xpath = "//td[@title='Total amount']")
     public WebElement totalAmount;
@@ -46,9 +53,28 @@ public class QuotationRequest {
     @FindBy(xpath = "//button[.='Cancel']")
     public WebElement cancel;
 
+    @FindBy(xpath = "//button[contains(text(),'Create')]")
+    public WebElement create;
 
     @FindBy(xpath = "(//div[@class='btn-group']//ul//li)[2]")
     public WebElement RequestForQuotationPrint;
+
+    @FindBy(xpath = "//span[.='Create']")
+    public WebElement createVendor;
+
+
+    @FindBy(xpath = "(//tbody/tr/td)[2]/a")
+    public WebElement confirmVendorName;
+
+    @FindBy(xpath = "(//div[@class='o_input_dropdown']/input)[1]")
+    public WebElement VendorName;
+
+    @FindBy(xpath = "//button[.='Confirm Order'][1]")
+    public WebElement confirmOrder;
+
+
+    @FindBy(name = "partner_ref")
+    public WebElement reference;
 
     @FindBy(xpath = "(//div[@class='btn-group']//ul)[2]//li[1]")
     public WebElement export;
@@ -58,6 +84,9 @@ public class QuotationRequest {
 
     @FindBy(xpath = "//span[.='Currency']")
     public WebElement currency;
+
+    @FindBy(name = "name")
+    public WebElement quotename;
 
     @FindBy(xpath = "//span[.='Order Date']")
     public WebElement orderDateadd;
@@ -77,6 +106,43 @@ public class QuotationRequest {
 
     @FindBy(xpath = "//span[(contains(text(),'Ok'))]")
     public WebElement OK;
+
+    @FindBy(xpath = "//div[@class='o_form_buttons_edit']/button[1]")
+    public WebElement save;
+
+    public WebElement sort(String sortBy)
+    {
+        int column=6;
+        switch (sortBy)
+        {
+            case "Reference":
+                column=2;
+                break;
+            case "Order Date":
+                column=3;
+                break;
+            case "Vendor":
+                column=4;
+                break;
+            case "Scheduled Date":
+                column=5;
+                break;
+            case "Untaxed":
+                column=7;
+                break;
+            case "Total":
+                column=8;
+                break;
+            case "Status":
+                column=9;
+                break;
+                default:
+                    System.out.println("No sorting");
+                    break;
+        }
+
+        return Driver.getDriver().findElement(By.xpath("//table//th["+column+"]"));
+    }
 
 
     public List<Double> indvPrices() throws InterruptedException {
