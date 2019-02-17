@@ -58,7 +58,6 @@ public class Pages {
         }
         return quotationRequest;
     }
-
     public Vendors vendors() {
         if (vendors == null) {
             vendors = new Vendors();
