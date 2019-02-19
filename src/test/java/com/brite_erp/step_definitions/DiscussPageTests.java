@@ -39,6 +39,8 @@ public class DiscussPageTests  {
             pages.login().login();
         }
 
+
+
         @Then("check if Inbox is presented")
         public void check_if_Inbox_is_presented() throws InterruptedException {
             Thread.sleep(3000);
@@ -88,6 +90,42 @@ public class DiscussPageTests  {
             System.out.println("Mina sample");
 
         }
+
+    /**
+     * ziyoda
+     */
+    @When("login as inventory user")
+    public void login_as_inventory_user_and_password()  {
+        Pages pages = new Pages();
+        pages.login().loginAsInventory();
+    }
+
+    @When("user successfully should see inbox folder on right menu")
+    public void user_should_see_inbox_on_right_side_menu() throws InterruptedException{
+        Thread.sleep(3000);
+        Pages pages = new Pages();
+        Assert.assertTrue(pages.discussPage().inboxLink.isDisplayed());
+    }
+
+    @When("click on inbox")
+    public void click_on_inbox() throws InterruptedException{
+        Thread.sleep(3000);
+        Pages pages = new Pages();
+       pages.discussPage().inboxLink.click();
+    }
+
+    @When("inbox should successfully clickable")
+    public void inbox_should_successfully_clickable() throws InterruptedException{
+        Thread.sleep(3000);
+        Pages pages = new Pages();
+        Assert.assertTrue(pages.discussPage().inboxLink.isEnabled());
+    }
+
+    @When("the title on the page successfully should be inbox")
+    public void verify_page_title_as_inbox() throws InterruptedException{
+        Thread.sleep(3000);
+        Assert.assertEquals(Driver.getDriver().getTitle(), ApplicationConstants.APPLICATION_TITLE);
+    }
 
 
     }
