@@ -218,7 +218,7 @@ public class BrowserUtils {
      * Scrolls down to an element using JavaScript
      * @param element
      */
-    public void scrollToElement(WebElement element) {
+    public static void scrollToElement(WebElement element) {
         ((JavascriptExecutor) Driver.getDriver()).executeScript("arguments[0].scrollIntoView(true);", element);
     }
 
