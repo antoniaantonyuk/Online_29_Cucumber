@@ -11,8 +11,9 @@ import org.junit.runner.RunWith;
         "html:target/default-cucumber-report"},
         features ="src/test/resources/Purchases/",
         glue = "com/brite_erp/step_definitions"
-        ,tags = "@Run"
-     //  ,dryRun = true
+        ,tags = "@Smoke"
+      ,dryRun = false
+
         )
 public class PurchasesRunner {
 }

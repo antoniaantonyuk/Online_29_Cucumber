@@ -5,6 +5,7 @@ import com.brite_erp.utilities.ApplicationConstants;
 import com.brite_erp.utilities.BrowserUtils;
 import com.brite_erp.utilities.Driver;
 import com.brite_erp.utilities.Pages;
+import cucumber.api.PendingException;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import org.junit.Assert;
@@ -23,7 +24,9 @@ public class SmokeTestStepDefinition extends Menu {
 
     @Then("^title of the page should be \"([^\"]*)\"$")
     public void title_of_the_page_should_be(String arg1) throws Throwable {
-        BrowserUtils.wait(3);
+        BrowserUtils.wait(6);
         Assert.assertEquals(Driver.getDriver().getTitle(), ApplicationConstants.PURCHASES_TITLE);
+      //Assert.assertEquals(Driver.getDriver().getTitle(), ApplicationConstants.PURCHASES_ORDERS_TITLE);
     }
+
 }

@@ -1,4 +1,4 @@
-
+@Run
 Feature: QuoteRequestPage
 
 
@@ -25,7 +25,7 @@ Feature: QuoteRequestPage
 #
 #
 ##brit 101,81
-  @Run
+
   Scenario: Manager should be able to print as a request for quotation
     Then user selects random quotes from the list
     And user can click on print tab and select print as a request for quotation option
