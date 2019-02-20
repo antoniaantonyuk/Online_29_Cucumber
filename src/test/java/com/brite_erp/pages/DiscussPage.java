@@ -31,6 +31,9 @@ public class DiscussPage extends Menu {
     @FindBy(xpath = "//textarea[@class='o_input o_composer_text_field']")
     public WebElement privateChannelMessageField;
 
+    @FindBy(xpath = "//h4[contains(.,'Private')]")
+    public WebElement privateChannel;
+
     @FindBy(partialLinkText = NEW_CHANNEL)
     public  WebElement privateChannelNameNew;
 
