@@ -27,7 +27,6 @@ public class Hooks {
 
    @After
     public void tearDown(Scenario scenario){
-        System.out.println("I am reporting the results");
 
         if (scenario.isFailed()) {
 
@@ -36,7 +35,6 @@ public class Hooks {
             scenario.embed(screenshot, "image/png");
         }
 
-        System.out.println("Closing driver");
         Driver.closeDriver();
     }
 }
