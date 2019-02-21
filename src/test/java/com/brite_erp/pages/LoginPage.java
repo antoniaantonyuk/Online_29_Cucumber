@@ -31,6 +31,15 @@ import org.openqa.selenium.support.PageFactory;
             loginButton.click();
         }
 
+        /**
+         * ziyoda
+         */
+        public void loginAsInventory(){
+            username.sendKeys(ConfigurationReader.getProperty("username2"));
+            password.sendKeys(ConfigurationReader.getProperty("password2"));
+            loginButton.click();
+        }
+
         public void open() {
             Driver.getDriver().get(ConfigurationReader.getProperty("url"));
 
