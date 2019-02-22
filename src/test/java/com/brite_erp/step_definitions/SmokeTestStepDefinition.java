@@ -24,9 +24,32 @@ public class SmokeTestStepDefinition extends Menu {
 
     @Then("^title of the page should be \"([^\"]*)\"$")
     public void title_of_the_page_should_be(String arg1) throws Throwable {
-        BrowserUtils.wait(6);
-        Assert.assertEquals(Driver.getDriver().getTitle(), ApplicationConstants.PURCHASES_TITLE);
+      pages.purchasesMain().titleRequestForQuotationPage.click();
+        BrowserUtils.wait(5);
+        //String quotationTitle =pages.purchasesMain().titleRequestForQuotationPage.getText();
+      String quotationTitle = Driver.getDriver().getTitle();
+      System.out.println(quotationTitle);
+
+      BrowserUtils.wait(4);
+      pages.purchasesMain().titlePurchaseOrders.click();
+      BrowserUtils.wait(4);
+        Assert.assertEquals(ApplicationConstants.PURCHASES_TITLE,quotationTitle);
       //Assert.assertEquals(Driver.getDriver().getTitle(), ApplicationConstants.PURCHASES_ORDERS_TITLE);
+
+      BrowserUtils.wait(4);
+      //String purchasesOrderTitle =pages.purchasesMain().titlePurchaseOrders.getText();
+      pages.purchasesMain().titleVendors.click();
+      BrowserUtils.wait(4);
+      String purchasesOrderTitle = Driver.getDriver().getTitle();
+      System.out.println(purchasesOrderTitle);
+      Assert.assertEquals(ApplicationConstants.PURCHASES_ORDERS_TITLE,purchasesOrderTitle);
+
+      BrowserUtils.wait(10);
+      String vendorsTitle =pages.purchasesMain().titleVendors.getText();
+      System.out.println(vendorsTitle);
+      Assert.assertEquals(ApplicationConstants.VENDORS_TITLE,vendorsTitle);
+
+
     }
 
 }

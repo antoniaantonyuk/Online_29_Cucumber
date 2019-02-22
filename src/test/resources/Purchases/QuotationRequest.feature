@@ -53,7 +53,7 @@ Feature: QuoteRequestPage
       | Graph    |
       | Schedule |
 #
-#
+
 ##brit 321
 
   Scenario: Manager should be able to delete a quote
