@@ -11,6 +11,7 @@ import org.openqa.selenium.support.ui.Select;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 
 public class Vendors {
 
@@ -88,17 +89,20 @@ public class Vendors {
     @FindBy(xpath = "//button[contains(@accesskey,'l')]")
     public WebElement listView;
 
-    public List<Integer> sortedVendor() {
-        List<WebElement> sv = Driver.getDriver().findElements(By.xpath("//tbody/tr/td[2]"));
+    public WebElement sortedVendor() {
+        List<WebElement> sv = Driver.getDriver().findElements(By.xpath("//tbody/tr"));
         System.out.println(sv.size());
-        List<Integer> randomVendor = new ArrayList<>();
+        //List<Integer> randomVendor = new ArrayList<>();
+        Random rnd=new Random();
+        int chooseRow=1+rnd.nextInt(sv.size());
+        System.out.println(chooseRow);
 
-        for (int i = 1; i < sv.size(); i++) {
-            BrowserUtils.scrollToElement(Driver.getDriver().findElement(By.xpath("(//tbody/tr/td[2])[i]")));
-            BrowserUtils.waitForVisibility(Driver.getDriver().findElement(By.xpath("(//tbody/tr/td[2])[i]")), 7);
-
-        }
-        return randomVendor;
+//        for (int i = 1; i < sv.size(); i++) {
+//            BrowserUtils.scrollToElement(Driver.getDriver().findElement(By.xpath("(//tbody/tr[i]")));
+//            BrowserUtils.waitForVisibility(Driver.getDriver().findElement(By.xpath("(//tbody/tr/td[2])[i]")), 7);
+//
+//        }
+        return Driver.getDriver().findElement(By.xpath("//tbody/tr["+chooseRow+"]"));
     }
 
 

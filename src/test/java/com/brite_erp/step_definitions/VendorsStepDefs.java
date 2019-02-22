@@ -5,37 +5,33 @@ import com.brite_erp.utilities.Driver;
 import com.brite_erp.utilities.Pages;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
+import org.apache.bcel.generic.BREAKPOINT;
 import org.openqa.selenium.By;
+import org.openqa.selenium.DeviceRotation;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.Select;
 
 import java.util.Random;
 
-public class Vendors {
+public class VendorsStepDefs {
     private Pages pages = new Pages();
 
-    public void user_on_the_purchases_page() throws Throwable {
-        pages.login().open();
-        pages.chooseERP().rightERP.click();
-        pages.login().login();
-        BrowserUtils.wait(2);
-        pages.purchasesMain().purchaseInMenu.click();
-
-    }
 
     @Given("^user clicks on vendors tab$")
     public void user_clicks_on_vendors_tab() throws Throwable {
         // Write code here that turns the phrase above into concrete actions
-        //BrowserUtils.wait(10);
-        BrowserUtils.wait(7);
-       pages.vendors().vendorsTab.click();
-        //BrowserUtils.waitForVisibility(pages.vendors().createVendor,12);
+
         BrowserUtils.wait(5);
+        pages.vendors().vendorsTab.click();
+       // BrowserUtils.doubleClick(pages.vendors().vendorsTab);
+      // pages.vendors().vendorsTab.click();
+        //BrowserUtils.waitForVisibility(pages.vendors().createVendor,12);
+        BrowserUtils.wait(10);
     }
 
-    @Then("^user clicks on Create button$")
-    public void user_clicks_on_Create_button() throws Throwable {
+    @Then("^user clicks on VendorCreate button$")
+    public void user_clicks_on_VendorCreate_button() throws Throwable {
         // Write code here that turns the phrase above into concrete actions
         pages.vendors().createVendor.click();
         BrowserUtils.waitForVisibility(pages.vendors().radioButton,6);
@@ -43,21 +39,21 @@ public class Vendors {
 
     @Then("^user clicks on company radio button$")
     public void user_clicks_on_company_radio_button() throws Throwable {
+        BrowserUtils.wait(4);
         pages.vendors().radioButton.click();
-       BrowserUtils.wait(2);
+       BrowserUtils.wait(4);
 
     }
 
-    @Then("^user clicks on save button$")
-    public void user_clicks_on_save_button(String Name, String Address, String Phone, String Email) throws Throwable {
-
-        pages.vendors().newVendorName.sendKeys(Name,Keys.ENTER);
-        pages.vendors().Address.sendKeys(Address,Keys.ENTER);
-        pages.vendors().Phone.sendKeys(Phone,Keys.ENTER);
-        pages.vendors().Email.sendKeys(Email,Keys.ENTER);
-        pages.vendors().saveNewVendor.click();
-
+    @Then("^user creates new vendor \"([^\"]*)\", \"([^\"]*)\", \"([^\"]*)\",\"([^\"]*)\"$")
+    public void user_creates_new_vendor(String Name, String Address, String Phone, String Email) throws Throwable {
+        pages.vendors().Name.sendKeys(Name);
+         pages.vendors().Address.sendKeys(Address,Keys.ENTER);
+         pages.vendors().Phone.sendKeys(Phone);
+         pages.vendors().Email.sendKeys(Email);
+         pages.vendors().saveNewVendor.click();
     }
+
 
     @Then("^user write vendor name which want to search \"([^\"]*)\"$")
     public void user_write_vendor_name_which_want_to_search(String arg1) throws Throwable {
@@ -86,21 +82,27 @@ public class Vendors {
 pages.vendors().importVendor.click();
     }
 
-    @Then("^user uploads data file #excel file upload$")
+    @Then("^user uploads data file excel file upload$")
     public void user_uploads_data_file_excel_file_upload() throws Throwable {
    // BrowserUtils.verifyElementDisplayed(pages.vendors().loadFile);
-        pages.vendors().loadFile.click();
-        BrowserUtils.wait(3);
-        String path= "/Macintosh HD/Users/oibek/Document/SalesTest11.xlsx";
-        pages.vendors().loadFile.sendKeys(path);
+
+        String path= "C:\\Users\\oozturk\\Desktop\\SalesJan2009.csv";
+        Driver.getDriver().findElement(By.name("file")).sendKeys(path);
+        //pages.vendors().loadFile.sendKeys(path);
+        BrowserUtils.wait(5);
+
+        //pages.vendors().loadFile.sendKeys(path);
 
     }
 private  Random random = new Random();
-    @Then("^user clicks any vendor #use random method$")
+    @Then("^user clicks any vendor use random method$")
     public void user_clicks_any_vendor_use_random_method() throws Throwable {
+
+
         pages.vendors().listView.click();
-        BrowserUtils.wait(2);
-        int randomRow =random.nextInt(pages.vendors().sortedVendor().size());
+        pages.vendors().sortedVendor().click();
+        BrowserUtils.wait(10);
+        //int randomRow =random.nextInt(pages.vendors().sortedVendor().size());
 
 
     }
