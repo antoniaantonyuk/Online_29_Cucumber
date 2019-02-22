@@ -31,7 +31,7 @@ public class Vendors {
         BrowserUtils.wait(7);
        pages.vendors().vendorsTab.click();
         //BrowserUtils.waitForVisibility(pages.vendors().createVendor,12);
-        BrowserUtils.wait(8);
+        BrowserUtils.wait(5);
     }
 
     @Then("^user clicks on Create button$")
@@ -51,10 +51,10 @@ public class Vendors {
     @Then("^user clicks on save button$")
     public void user_clicks_on_save_button(String Name, String Address, String Phone, String Email) throws Throwable {
 
-        pages.vendors().newVendorName.sendKeys(Name);
+        pages.vendors().newVendorName.sendKeys(Name,Keys.ENTER);
         pages.vendors().Address.sendKeys(Address,Keys.ENTER);
-        pages.vendors().Phone.sendKeys(Phone);
-        pages.vendors().Email.sendKeys(Email);
+        pages.vendors().Phone.sendKeys(Phone,Keys.ENTER);
+        pages.vendors().Email.sendKeys(Email,Keys.ENTER);
         pages.vendors().saveNewVendor.click();
 
     }
@@ -92,7 +92,7 @@ pages.vendors().importVendor.click();
         pages.vendors().loadFile.click();
         BrowserUtils.wait(3);
         String path= "/Macintosh HD/Users/oibek/Document/SalesTest11.xlsx";
-        pages.vendors().loadFile.sendKeys(path,Keys.ENTER);
+        pages.vendors().loadFile.sendKeys(path);
 
     }
 private  Random random = new Random();

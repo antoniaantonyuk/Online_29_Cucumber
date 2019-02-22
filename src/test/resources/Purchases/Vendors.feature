@@ -10,6 +10,7 @@ Feature: VendorsPage
     And user clicks on vendors tab
 
 #BRIT-1548
+
   Scenario Outline: Create a new vendor
     Then user clicks on Create button
     And user clicks on company radio button
@@ -23,6 +24,7 @@ Feature: VendorsPage
 
 
 ##BRIT-1555
+
   Scenario Outline: User should be able to search for a Vendor in search field
     Then user write vendor name which want to search "<SearchField>"
 
@@ -48,7 +50,7 @@ Feature: VendorsPage
 
 
 ##BRIT-1580
-
+@go
 Scenario: User is able to click any of the existing vendors
 And user clicks on vendors tab
 Then user clicks any vendor #use random method

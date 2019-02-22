@@ -1,20 +1,21 @@
 @smoke
 Feature: Smoke Tests
+
   Background:
     Given user on the purchases page
 
   Scenario Outline: checks the tabs under purchase module
 
     Then title of the page should be "<tabTitle>"
-  Examples:
-    | tabTitle    |
-    | Requests for Quotation - Odoo    |
-    | Purchase Orders - Odoo |
-    | Vendors - Odoo  |
-    | Products - Odoo  |
-    | Incoming Products - Odoo |
-    | Vendor Bills - Odoo |
-    | Purchases Analysis - Odoo |
+    Examples:
+      | tabTitle                      |
+      | Requests for Quotation - Odoo |
+      | Purchase Orders - Odoo        |
+      | Vendors - Odoo                |
+      | Products - Odoo               |
+      | Incoming Products - Odoo      |
+      | Vendor Bills - Odoo           |
+      | Purchase Analysis - Odoo     |
 
 
 #  Scenario: checks purchase tab title of Requests for Quotation

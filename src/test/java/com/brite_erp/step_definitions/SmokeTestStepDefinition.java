@@ -23,31 +23,80 @@ public class SmokeTestStepDefinition extends Menu {
     }
 
     @Then("^title of the page should be \"([^\"]*)\"$")
-    public void title_of_the_page_should_be(String arg1) throws Throwable {
-      pages.purchasesMain().titleRequestForQuotationPage.click();
-        BrowserUtils.wait(5);
-        //String quotationTitle =pages.purchasesMain().titleRequestForQuotationPage.getText();
-      String quotationTitle = Driver.getDriver().getTitle();
-      System.out.println(quotationTitle);
+    public void title_of_the_page_should_be(String purchasesTitle) throws Throwable {
 
-      BrowserUtils.wait(4);
-      pages.purchasesMain().titlePurchaseOrders.click();
-      BrowserUtils.wait(4);
-        Assert.assertEquals(ApplicationConstants.PURCHASES_TITLE,quotationTitle);
-      //Assert.assertEquals(Driver.getDriver().getTitle(), ApplicationConstants.PURCHASES_ORDERS_TITLE);
+      switch (purchasesTitle)
+      {
+        case "Requests for Quotation - Odoo":
+          pages.purchasesMain().titleRequestForQuotationPage.click();
+          BrowserUtils.wait(2);
+          Assert.assertEquals(Driver.getDriver().getTitle(),purchasesTitle);
+          break;
 
-      BrowserUtils.wait(4);
-      //String purchasesOrderTitle =pages.purchasesMain().titlePurchaseOrders.getText();
-      pages.purchasesMain().titleVendors.click();
-      BrowserUtils.wait(4);
-      String purchasesOrderTitle = Driver.getDriver().getTitle();
-      System.out.println(purchasesOrderTitle);
-      Assert.assertEquals(ApplicationConstants.PURCHASES_ORDERS_TITLE,purchasesOrderTitle);
+        case "Purchase Orders - Odoo":
+          pages.purchasesMain().titlePurchaseOrders.click();
+          BrowserUtils.wait(5);
+          Assert.assertEquals(purchasesTitle,Driver.getDriver().getTitle());
+          break;
 
-      BrowserUtils.wait(10);
-      String vendorsTitle =pages.purchasesMain().titleVendors.getText();
-      System.out.println(vendorsTitle);
-      Assert.assertEquals(ApplicationConstants.VENDORS_TITLE,vendorsTitle);
+        case "Vendors - Odoo":
+          pages.purchasesMain().titleVendors.click();
+          BrowserUtils.wait(5);
+          Assert.assertEquals(purchasesTitle,Driver.getDriver().getTitle());
+          break;
+
+        case "Products - Odoo":
+          pages.purchasesMain().titleProducts.click();
+          BrowserUtils.wait(5);
+          Assert.assertEquals(Driver.getDriver().getTitle(),purchasesTitle);
+          break;
+
+        case "Incoming Products - Odoo":
+          pages.purchasesMain().titleIncomingProducts.click();
+          BrowserUtils.wait(5);
+          Assert.assertEquals(Driver.getDriver().getTitle(),purchasesTitle);
+          break;
+
+        case "Vendor Bills - Odoo":
+          pages.purchasesMain().titleVendorBills.click();
+          BrowserUtils.wait(5);
+          Assert.assertEquals(Driver.getDriver().getTitle(),purchasesTitle);
+          break;
+
+        case "Purchase Analysis - Odoo":
+          pages.purchasesMain().titleReporting.click();
+          BrowserUtils.wait(5);
+          Assert.assertEquals(Driver.getDriver().getTitle(),purchasesTitle);
+          break;
+
+          default:
+            System.out.println("Wrong Title");
+
+      }
+//      pages.purchasesMain().titleRequestForQuotationPage.click();
+//        BrowserUtils.wait(5);
+//        //String quotationTitle =pages.purchasesMain().titleRequestForQuotationPage.getText();
+//      String quotationTitle = Driver.getDriver().getTitle();
+//      System.out.println(quotationTitle);
+//
+//      BrowserUtils.wait(4);
+//      pages.purchasesMain().titlePurchaseOrders.click();
+//      BrowserUtils.wait(4);
+//        Assert.assertEquals(ApplicationConstants.PURCHASES_TITLE,quotationTitle);
+//      //Assert.assertEquals(Driver.getDriver().getTitle(), ApplicationConstants.PURCHASES_ORDERS_TITLE);
+//
+//      BrowserUtils.wait(4);
+//      //String purchasesOrderTitle =pages.purchasesMain().titlePurchaseOrders.getText();
+//      pages.purchasesMain().titleVendors.click();
+//      BrowserUtils.wait(4);
+//      String purchasesOrderTitle = Driver.getDriver().getTitle();
+//      System.out.println(purchasesOrderTitle);
+//      Assert.assertEquals(ApplicationConstants.PURCHASES_ORDERS_TITLE,purchasesOrderTitle);
+//
+//      BrowserUtils.wait(10);
+//      String vendorsTitle =pages.purchasesMain().titleVendors.getText();
+//      System.out.println(vendorsTitle);
+//      Assert.assertEquals(ApplicationConstants.VENDORS_TITLE,vendorsTitle);
 
 
     }
