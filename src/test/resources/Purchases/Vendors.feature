@@ -10,11 +10,12 @@ Feature: VendorsPage
     And user clicks on vendors tab
 
 #BRIT-1548
+
   Scenario Outline: Create a new vendor
-    Then user clicks on Create button
+    Then user clicks on VendorCreate button
     And user clicks on company radio button
-    Then user fills out required information "<Name>", "<Address>", "<Phone>","<Email>"
-    Then user clicks on save button
+  #  Then user fills out required information "<Name>", "<Address>", "<Phone>","<Email>"
+    Then user creates new vendor "<Name>", "<Address>", "<Phone>","<Email>"
 
     Examples:
       | Name       | Address          | Phone      | Email             |
@@ -40,18 +41,18 @@ Feature: VendorsPage
     And user clicks on companies
 
 
-##BRIT-1571
+##BRIT-1571 //TODO
 
   Scenario: import a CSV or Excel file
     Then user clicks on import button
-    Then user uploads data file #excel file upload
+    Then user uploads data file excel file upload
 
 
-##BRIT-1580
-
+##BRIT-1580 //TODO
+  @oibek
 Scenario: User is able to click any of the existing vendors
 And user clicks on vendors tab
-Then user clicks any vendor #use random method
+Then user clicks any vendor use random method
 
 #
 ##BRIT-1689

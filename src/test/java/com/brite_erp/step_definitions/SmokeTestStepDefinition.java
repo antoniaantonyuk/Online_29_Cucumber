@@ -13,19 +13,48 @@ import org.junit.Assert;
 public class SmokeTestStepDefinition extends Menu {
 
   protected Pages pages=new Pages();
-    @Given("^user on the purchases page$")
+/*    @Given("^user on the purchases page$")
     public void user_on_the_purchases_page() throws Throwable {
       pages.login().open();
         pages.chooseERP().rightERP.click();
         pages.login().login();
         pages.purchasesMain().purchaseInMenu.click();
 
-    }
+    }*/
 
     @Then("^title of the page should be \"([^\"]*)\"$")
-    public void title_of_the_page_should_be(String arg1) throws Throwable {
-      pages.purchasesMain().titleRequestForQuotationPage.click();
-        BrowserUtils.wait(5);
+    public void title_of_the_page_should_be(String tab) throws Throwable {
+
+      switch (tab)
+      {
+        case "Requests for Quotation - Odoo":
+          pages.purchasesMain().titleRequestForQuotationPage.click();
+        BrowserUtils.wait(3);
+           Assert.assertEquals(tab,Driver.getDriver().getTitle());
+        break;
+        case "Purchase Orders - Odoo":
+          pages.purchasesMain().titlePurchaseOrders.click();
+          break;
+       /* case tab:"Requests for Quotation - Odoo"
+          pages.purchasesMain().titleRequestForQuotationPage.click();
+          break;
+        case tab:"Requests for Quotation - Odoo"
+          pages.purchasesMain().titleRequestForQuotationPage.click();
+          break;case tab:"Requests for Quotation - Odoo"
+        pages.purchasesMain().titleRequestForQuotationPage.click();
+        break;*/
+
+
+      }
+
+
+
+
+
+
+
+
+       /* BrowserUtils.wait(5);
         //String quotationTitle =pages.purchasesMain().titleRequestForQuotationPage.getText();
       String quotationTitle = Driver.getDriver().getTitle();
       System.out.println(quotationTitle);
@@ -48,7 +77,7 @@ public class SmokeTestStepDefinition extends Menu {
       String vendorsTitle =pages.purchasesMain().titleVendors.getText();
       System.out.println(vendorsTitle);
       Assert.assertEquals(ApplicationConstants.VENDORS_TITLE,vendorsTitle);
-
+*/
 
     }
 

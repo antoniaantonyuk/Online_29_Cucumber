@@ -27,6 +27,7 @@ import static org.junit.Assert.assertEquals;
 public class QuotationRequest {
     private Pages pages=new Pages();
 
+    @Given("^user on the purchases page$")
     public void user_on_the_purchases_page() throws Throwable {
         pages.login().open();
         pages.chooseERP().rightERP.click();
@@ -170,11 +171,11 @@ public class QuotationRequest {
     }
 private String vendorName;
     @Then("^user fills out required information \"([^\"]*)\", \"([^\"]*)\", \"([^\"]*)\",\"([^\"]*)\"$")
-    public void user_fills_out_required_information(String vendor, String reference, String orderDate, String scheduledDate) throws Throwable {
+    public void user_fills_out_required_information(String vendorr, String reference, String orderDate, String scheduledDate) throws Throwable {
         Date d=new Date();
-       vendorName=vendor;
-       // pages.quotationRequest().VendorName.sendKeys(vendor,Keys.ENTER);
-        pages.quotationRequest().VendorName.sendKeys(vendor);
+       vendorName=vendorr;
+       // pages.quotationRequest().VendorName.sendKeys(vendorr,Keys.ENTER);
+        pages.quotationRequest().VendorName.sendKeys(vendorr);
         pages.quotationRequest().reference.sendKeys(reference,Keys.ENTER);
         BrowserUtils.wait(1);
         pages.quotationRequest().createVendor.click();
