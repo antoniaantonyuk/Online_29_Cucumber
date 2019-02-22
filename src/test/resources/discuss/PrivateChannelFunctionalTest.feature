@@ -1,7 +1,7 @@
 Feature: Private Channel Functional Test
 
   @DiscussFunctional
-  Scenario:
+  Scenario:Creating Private Channel
     Given User in the Duscuss Page
     Then Create Private Channel
     Then Write Private Channel Name
