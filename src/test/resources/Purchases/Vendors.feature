@@ -1,15 +1,15 @@
-@vendor
+@oibek
 Feature: VendorsPage
 
   Background:
-#Given user on the home page
-#When user click on BriteErpDemo option
-#Then user logs in by using "in_pos_manager4.@info.com" and "KjKtfgrs33"
-#And user clicks on purchases tab
+  #Given user on the home page
+  #When user click on BriteErpDemo option
+  #Then user logs in by using "in_pos_manager4.@info.com" and "KjKtfgrs33"
+  #And user clicks on purchases tab
     Given user on the purchases page
     And user clicks on vendors tab
 
-#BRIT-1548
+  #BRIT-1548
 
   Scenario Outline: Create a new vendor
     Then user clicks on VendorCreate button
@@ -41,27 +41,27 @@ Feature: VendorsPage
     And user clicks on companies
 
 
-##BRIT-1571 //TODO
+##BRIT-1571 //
 
   Scenario: import a CSV or Excel file
     Then user clicks on import button
     Then user uploads data file excel file upload
 
 
-##BRIT-1580 //TODO
-  @oibek
-Scenario: User is able to click any of the existing vendors
-And user clicks on vendors tab
-Then user clicks any vendor use random method
+##BRIT-1580 //
 
-#
-##BRIT-1689
-Scenario: User should be able to sent an email to the vendors email address
-Then user clicks on Dont Touch vendor
-Then clicks on oibekalim@gmail.com system should open default email fill requirement and send
+  Scenario: User is able to click any of the existing vendors
+    And user clicks on vendors tab
+    Then user clicks any vendor use random method
 
+##
+###BRIT-1689
+#  Scenario: User should be able to sent an email to the vendors email address
+#    Then user clicks on Dont Touch vendor
+#    Then clicks on oibekalim@gmail.com system should open default email fill requirement and send
 #
-##BRIT-1718
-Scenario: Manager should be able to get a pie chart from reporting function
-Then user clicks on Reporting button # control clicking vendors button you can remove from Background
-Then user clicks on pie button
+##
+###BRIT-1718
+#  Scenario: Manager should be able to get a pie chart from reporting function
+#    Then user clicks on Reporting button # control clicking vendors button you can remove from Background
+#    Then user clicks on pie button

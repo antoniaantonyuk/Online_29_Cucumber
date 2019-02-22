@@ -20,7 +20,11 @@ public class VendorsStepDefs {
 
     @Given("^user clicks on vendors tab$")
     public void user_clicks_on_vendors_tab() throws Throwable {
-        // Write code here that turns the phrase above into concrete actions
+        pages.login().open();
+        pages.chooseERP().rightERP.click();
+        pages.login().login();
+        BrowserUtils.wait(2);
+        pages.purchasesMain().purchaseInMenu.click();
 
         BrowserUtils.wait(5);
         pages.vendors().vendorsTab.click();
@@ -29,10 +33,8 @@ public class VendorsStepDefs {
         //BrowserUtils.waitForVisibility(pages.vendors().createVendor,12);
         BrowserUtils.wait(10);
     }
-
     @Then("^user clicks on VendorCreate button$")
     public void user_clicks_on_VendorCreate_button() throws Throwable {
-        // Write code here that turns the phrase above into concrete actions
         pages.vendors().createVendor.click();
         BrowserUtils.waitForVisibility(pages.vendors().radioButton,6);
     }
