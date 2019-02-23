@@ -62,35 +62,6 @@ public class DiscussPageTests  {
 
         }
 
-
-        @Then("click on send direct message button")
-        public void click_on_send_direct_message_button() {
-            System.out.println("Mina sample");
-        }
-
-        @Then("add other user")
-        public void add_other_user()  {System.out.println("Mina sample");
-        }
-
-        @Then("select user in drop down menu")
-        public void select_user_in_drop_down_menu()  {System.out.println("Mina sample");
-        }
-
-        @Then("check if selected user is displayed")
-        public void check_if_selected_user_is_displayed()  {System.out.println("Mina sample");
-        }
-
-        @Then("delete the selected user")
-        public void delete_the_selected_user()  {
-            System.out.println("Mina sample");
-        }
-
-        @Then("check if user is deleted")
-        public void check_if_user_is_deleted()  {
-            System.out.println("Mina sample");
-
-        }
-
     /**
      * ziyoda
      */
