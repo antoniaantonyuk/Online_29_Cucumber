@@ -1,3 +1,4 @@
+@yaz
 Feature: Products page under purchases
 
   Background:
@@ -29,7 +30,7 @@ Feature: Products page under purchases
       | DataCard | 15       |
 
 #brit 1819
-  @ron
+
   Scenario Outline: Manager should be able to print a product label
     When the user clicks on the product of "<item>"
     And the user clicks on the product's "print" button
