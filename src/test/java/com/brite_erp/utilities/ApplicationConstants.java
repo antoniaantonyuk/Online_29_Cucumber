@@ -12,7 +12,7 @@ public class ApplicationConstants {
 
         public static final String NEW_CHANNEL_FOR_INVITATION = "InvitationTest";
 
-        public static final String VENDORS_TITLE = "Vendors - Odoo";
+        public static final String VENDORS_TITLE = "VendorsStepDefs - Odoo";
 
         public static final String PRODUCTS_TITLE = "Products - Odoo";
 

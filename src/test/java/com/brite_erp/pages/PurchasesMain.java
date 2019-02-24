@@ -14,6 +14,9 @@ public class PurchasesMain extends Menu {
     @FindBy(xpath = "//a[@data-menu='504']")
     public WebElement titlePurchasePage;
 
+    @FindBy(xpath = "//a[@data-menu='518']")
+    public WebElement titleRequestForQuotationPage;
+
     @FindBy(xpath = "//a[@data-menu='519']")
     public WebElement titlePurchaseOrders;
 
