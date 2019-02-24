@@ -18,6 +18,7 @@ public class SmokeTestStepDefinition extends Menu {
         pages.chooseERP().rightERP.click();
         pages.login().login();
         pages.purchasesMain().purchaseInMenu.click();
+        pages.purchasesMain().titleProducts.click();
 
     }
 

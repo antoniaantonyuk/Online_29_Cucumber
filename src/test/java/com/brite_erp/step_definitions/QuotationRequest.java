@@ -34,6 +34,7 @@ public class QuotationRequest {
         BrowserUtils.wait(2);
         pages.purchasesMain().purchaseInMenu.click();
 
+
     }
     @Then("^total value shown at the bottom of the page should match with addition of all quote values$")
     public void total_value_shown_at_the_bottom_of_the_page_should_match_with_addition_of_all_quote_values() throws Throwable {
@@ -148,7 +149,7 @@ public class QuotationRequest {
     public void user_clicks_on_head(String arg1, String arg2, String arg3, String arg4, String arg5, String arg6, String arg7) throws Throwable {
 
          pages.quotationRequest().sort(arg1).click();
-              BrowserUtils.wait(1);
+         BrowserUtils.wait(1);
            pages.quotationRequest().sort(arg2).click();
         BrowserUtils.wait(1);
         pages.quotationRequest().sort(arg3).click();
