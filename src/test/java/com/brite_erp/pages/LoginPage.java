@@ -37,6 +37,7 @@ import org.openqa.selenium.support.PageFactory;
             loginButton.click();
         }
 
+
         public void wrongUsername(){
             username.sendKeys(ConfigurationReader.getProperty("wrongusername"));
             password.sendKeys(ConfigurationReader.getProperty("password"));
@@ -46,6 +47,10 @@ import org.openqa.selenium.support.PageFactory;
         public void wrongPassword(){
             username.sendKeys(ConfigurationReader.getProperty("username"));
             password.sendKeys(ConfigurationReader.getProperty("wrongpassword"));
+
+        public void loginAsInventory(){
+            username.sendKeys(ConfigurationReader.getProperty("username2"));
+            password.sendKeys(ConfigurationReader.getProperty("password2"));
             loginButton.click();
         }
 
