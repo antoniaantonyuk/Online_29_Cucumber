@@ -78,6 +78,21 @@ public class Vendors {
     @FindBy(xpath = "//a[contains(.,'Companies')]")
     public WebElement companies;
 
+    @FindBy(xpath = "//button[@data-mode='bar']")
+    public WebElement barChart;
+
+    @FindBy(xpath = "//button[@data-mode='line']")
+    public WebElement lineChart;
+
+    @FindBy(xpath = "//button[@data-mode='pie']")
+    public WebElement pieChart;
+
+    @FindBy(xpath = "//span[contains(.,'Dont Touch')]")
+    public WebElement dontTouchVendor;
+
+    @FindBy(xpath = "//a[@name='email']")
+    public WebElement sentEmail;
+
 
 //   Select dropdown =new Select(Driver.getDriver().findElement(By.xpath("(//button[contains(.,'')])[8]")));
 //

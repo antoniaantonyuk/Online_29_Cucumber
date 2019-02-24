@@ -20,11 +20,11 @@ public class VendorsStepDefs {
 
     @Given("^user clicks on vendors tab$")
     public void user_clicks_on_vendors_tab() throws Throwable {
-        pages.login().open();
-        pages.chooseERP().rightERP.click();
-        pages.login().login();
-        BrowserUtils.wait(2);
-        pages.purchasesMain().purchaseInMenu.click();
+//        pages.login().open();
+//        pages.chooseERP().rightERP.click();
+//        pages.login().login();
+//        BrowserUtils.wait(2);
+//        pages.purchasesMain().purchaseInMenu.click();
 
         BrowserUtils.wait(5);
         pages.vendors().vendorsTab.click();
@@ -88,7 +88,8 @@ pages.vendors().importVendor.click();
     public void user_uploads_data_file_excel_file_upload() throws Throwable {
    // BrowserUtils.verifyElementDisplayed(pages.vendors().loadFile);
 
-        String path= "C:\\Users\\oozturk\\Desktop\\SalesJan2009.csv";
+       //String path= "C:\\Users\\oozturk\\Desktop\\SalesJan2009.csv";
+String path ="/Users/oibek/Document/Online_29_Cucumber/src/test/resources/cvs/SalesJan2009 (1).csv";
         Driver.getDriver().findElement(By.name("file")).sendKeys(path);
         //pages.vendors().loadFile.sendKeys(path);
         BrowserUtils.wait(5);
@@ -108,6 +109,34 @@ private  Random random = new Random();
 
 
     }
+
+    @Then("^user clicks on Reporting button$")
+    public void user_clicks_on_Reporting_button() throws Throwable {
+        BrowserUtils.wait(5);
+        pages.purchasesMain().titleReporting.click();
+
+    }
+
+    @Then("^user clicks on bar, line and pie chart buttons$")
+    public void user_clicks_on_bar_line_and_pie_chart_buttons() throws Throwable {
+        pages.vendors().lineChart.click();
+        pages.vendors().barChart.click();
+        pages.vendors().pieChart.click();
+
+    }
+
+    @Then("^user clicks on 'Dont Touch' vendor$")
+    public void user_clicks_on_Dont_Touch_vendor() throws Throwable {
+        pages.vendors().dontTouchVendor.click();
+
+    }
+
+    @Then("^clicks on oibekalim@gmail\\.com system should open default email fill requirement and send$")
+    public void clicks_on_oibekalim_gmail_com_system_should_open_default_email_fill_requirement_and_send() throws Throwable {
+        pages.vendors().searchVendor.click();
+    }
+
+
 
 
 

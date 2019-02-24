@@ -10,17 +10,17 @@ import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import org.junit.Assert;
 
-public class SmokeTestStepDefinition extends Menu {
+public class SmokeTestStepDefinition {
 
   protected Pages pages=new Pages();
-    @Given("^user on the purchases page$")
-    public void user_on_the_purchases_page() throws Throwable {
-      pages.login().open();
-        pages.chooseERP().rightERP.click();
-        pages.login().login();
-        pages.purchasesMain().purchaseInMenu.click();
-
-    }
+//    @Given("^user on the purchases page$")
+//    public void user_on_the_purchases_page() throws Throwable {
+//      pages.login().open();
+//        pages.chooseERP().rightERP.click();
+//        pages.login().login();
+//        pages.purchasesMain().purchaseInMenu.click();
+//
+//    }
 
     @Then("^title of the page should be \"([^\"]*)\"$")
     public void title_of_the_page_should_be(String purchasesTitle) throws Throwable {
@@ -73,30 +73,6 @@ public class SmokeTestStepDefinition extends Menu {
             System.out.println("Wrong Title");
 
       }
-//      pages.purchasesMain().titleRequestForQuotationPage.click();
-//        BrowserUtils.wait(5);
-//        //String quotationTitle =pages.purchasesMain().titleRequestForQuotationPage.getText();
-//      String quotationTitle = Driver.getDriver().getTitle();
-//      System.out.println(quotationTitle);
-//
-//      BrowserUtils.wait(4);
-//      pages.purchasesMain().titlePurchaseOrders.click();
-//      BrowserUtils.wait(4);
-//        Assert.assertEquals(ApplicationConstants.PURCHASES_TITLE,quotationTitle);
-//      //Assert.assertEquals(Driver.getDriver().getTitle(), ApplicationConstants.PURCHASES_ORDERS_TITLE);
-//
-//      BrowserUtils.wait(4);
-//      //String purchasesOrderTitle =pages.purchasesMain().titlePurchaseOrders.getText();
-//      pages.purchasesMain().titleVendors.click();
-//      BrowserUtils.wait(4);
-//      String purchasesOrderTitle = Driver.getDriver().getTitle();
-//      System.out.println(purchasesOrderTitle);
-//      Assert.assertEquals(ApplicationConstants.PURCHASES_ORDERS_TITLE,purchasesOrderTitle);
-//
-//      BrowserUtils.wait(10);
-//      String vendorsTitle =pages.purchasesMain().titleVendors.getText();
-//      System.out.println(vendorsTitle);
-//      Assert.assertEquals(ApplicationConstants.VENDORS_TITLE,vendorsTitle);
 
 
     }

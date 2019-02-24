@@ -1,4 +1,4 @@
-@oibek
+
 Feature: VendorsPage
 
   Background:
@@ -42,7 +42,7 @@ Feature: VendorsPage
 
 
 ##BRIT-1571 //
-
+  @go
   Scenario: import a CSV or Excel file
     Then user clicks on import button
     Then user uploads data file excel file upload
@@ -54,14 +54,16 @@ Feature: VendorsPage
     And user clicks on vendors tab
     Then user clicks any vendor use random method
 
-##
+
 ###BRIT-1689
-#  Scenario: User should be able to sent an email to the vendors email address
-#    Then user clicks on Dont Touch vendor
-#    Then clicks on oibekalim@gmail.com system should open default email fill requirement and send
-#
-##
+
+  Scenario: User should be able to sent an email to the vendors email address
+    Then user clicks on 'Dont Touch' vendor
+    Then clicks on oibekalim@gmail.com system should open default email fill requirement and send
+
+
 ###BRIT-1718
-#  Scenario: Manager should be able to get a pie chart from reporting function
-#    Then user clicks on Reporting button # control clicking vendors button you can remove from Background
-#    Then user clicks on pie button
+
+  Scenario: Manager should be able to see a bar, line and pie charts,  from reporting function
+    Then user clicks on Reporting button
+    Then user clicks on bar, line and pie chart buttons
