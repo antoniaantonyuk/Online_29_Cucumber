@@ -20,6 +20,12 @@ import org.openqa.selenium.support.PageFactory;
         @FindBy(id="password")
         public WebElement password;
 
+        @FindBy(id="login")
+        public WebElement wrongusername;
+
+        @FindBy(id="password")
+        public WebElement wrongpassword;
+
         @FindBy(xpath = "//button[@type='submit']")
         public WebElement loginButton;
 
@@ -31,9 +37,17 @@ import org.openqa.selenium.support.PageFactory;
             loginButton.click();
         }
 
-        /**
-         * ziyoda
-         */
+
+        public void wrongUsername(){
+            username.sendKeys(ConfigurationReader.getProperty("wrongusername"));
+            password.sendKeys(ConfigurationReader.getProperty("password"));
+            loginButton.click();
+        }
+
+        public void wrongPassword(){
+            username.sendKeys(ConfigurationReader.getProperty("username"));
+            password.sendKeys(ConfigurationReader.getProperty("wrongpassword"));
+
         public void loginAsInventory(){
             username.sendKeys(ConfigurationReader.getProperty("username2"));
             password.sendKeys(ConfigurationReader.getProperty("password2"));
