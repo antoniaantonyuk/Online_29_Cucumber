@@ -29,7 +29,7 @@ public class SmokeTestStepDefinition {
       {
         case "Requests for Quotation - Odoo":
           pages.purchasesMain().titleRequestForQuotationPage.click();
-          BrowserUtils.wait(2);
+          BrowserUtils.wait(5);
           Assert.assertEquals(Driver.getDriver().getTitle(),purchasesTitle);
           break;
 

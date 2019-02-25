@@ -5,12 +5,8 @@ import com.brite_erp.utilities.Driver;
 import com.brite_erp.utilities.Pages;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
-import org.apache.bcel.generic.BREAKPOINT;
 import org.openqa.selenium.By;
-import org.openqa.selenium.DeviceRotation;
 import org.openqa.selenium.Keys;
-import org.openqa.selenium.support.PageFactory;
-import org.openqa.selenium.support.ui.Select;
 
 import java.util.Random;
 
@@ -88,8 +84,8 @@ pages.vendors().importVendor.click();
     public void user_uploads_data_file_excel_file_upload() throws Throwable {
    // BrowserUtils.verifyElementDisplayed(pages.vendors().loadFile);
 
-       //String path= "C:\\Users\\oozturk\\Desktop\\SalesJan2009.csv";
-String path ="/Users/oibek/Document/Online_29_Cucumber/src/test/resources/cvs/SalesJan2009 (1).csv";
+
+String path = ".\\src\\test\\resources\\cvs\\SalesJan2009.csv";
         Driver.getDriver().findElement(By.name("file")).sendKeys(path);
         //pages.vendors().loadFile.sendKeys(path);
         BrowserUtils.wait(5);
