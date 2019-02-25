@@ -44,10 +44,10 @@ import org.openqa.selenium.support.PageFactory;
             loginButton.click();
         }
 
-        public void wrongPassword(){
+        public void wrongPassword() {
             username.sendKeys(ConfigurationReader.getProperty("username"));
             password.sendKeys(ConfigurationReader.getProperty("wrongpassword"));
-
+        }
         public void loginAsInventory(){
             username.sendKeys(ConfigurationReader.getProperty("username2"));
             password.sendKeys(ConfigurationReader.getProperty("password2"));

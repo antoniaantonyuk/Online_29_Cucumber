@@ -1,11 +1,21 @@
-@smoke
-Feature: Smoke Tests
+@Smoke
+Feature: Smoke testS
 
-  Background:
-    Given user on the purchases page
+
+  Scenario: wrong password
+    Given user on the home page
+    When user click on BriteErpDemo option
+    Then user logs in wrong password "in_pos_manager4.@info.com" and "KjKtfgrs333"
+
+
+  Scenario: wrong username
+    Given user on the home page
+    When user click on BriteErpDemo option
+    Then user logs in wrong username "in_pos_manager44.@info.com" and "KjKtfgrs"
+
 
   Scenario Outline: checks the tabs under purchase module
-
+    Given user on the purchases page
     Then title of the page should be "<tabTitle>"
     Examples:
       | tabTitle                      |
@@ -16,26 +26,3 @@ Feature: Smoke Tests
       | Incoming Products - Odoo      |
       | Vendor Bills - Odoo           |
       | Purchase Analysis - Odoo     |
-
-
-#  Scenario: checks purchase tab title of Requests for Quotation
-#    Then title of the page should be "Requests for Quotation - Odoo"
-
-#  Scenario: checks purchase tab title of Purchase Orders
-#    Then title of the page should be "Purchase Orders - Odoo"
-#
-#  Scenario: checks purchase tab title of Vendors
-#    Then title of the page should be "Vendors - Odoo"
-#
-#  Scenario: checks purchase tab title of Products
-#    Then title of the page should be "Products - Odoo"
-#
-#  Scenario: checks purchase tab title of Incoming Products
-#    Then title of the page should be "Incoming Products - Odoo"
-#
-#  Scenario: checks purchase tab title of Vendor Bills
-#    Then title of the page should be "Vendor Bills - Odoo"
-#
-#  Scenario: checks purchase tab title of Purchases Analysis
-#    Then title of the page should be "Purchases Analysis - Odoo"
-#

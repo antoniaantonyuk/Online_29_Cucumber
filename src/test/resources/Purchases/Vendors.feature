@@ -44,7 +44,7 @@ Feature: VendorsPage
 ##BRIT-1571 //
   @go
   Scenario: import a CSV or Excel file
-    Then user clicks on import button
+   Then user clicks on import button
     Then user uploads data file excel file upload
 
 
