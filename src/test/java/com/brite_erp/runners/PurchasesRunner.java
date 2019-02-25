@@ -11,7 +11,7 @@ import org.junit.runner.RunWith;
         "html:target/default-cucumber-report"},
         features ="src/test/resources/Purchases/",
         glue = "com/brite_erp/step_definitions"
-        ,tags = "@go"
+        ,tags = "@Run"
 // ,dryRun = true
 
         )
