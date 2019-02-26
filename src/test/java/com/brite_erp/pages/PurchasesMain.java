@@ -50,7 +50,7 @@ public class PurchasesMain extends Menu {
     @FindBy (xpath = "//button[@tabindex='3']")
     public WebElement messageButton;
 
-    @FindBy (xpath = "(//div[@class='oe_kanban_details'])[42]")
+    @FindBy (xpath = "(//div[@class='oe_kanban_details'])[61]")
     public WebElement datacard;
 
     @FindBy (xpath = "//button[@class='btn btn-sm btn-default']")
@@ -66,7 +66,7 @@ public class PurchasesMain extends Menu {
     public WebElement updatedQuantity;
 
 
-    @FindBy(xpath = "(//div[@class='oe_kanban_global_click o_kanban_record'])[21]")
+    @FindBy(xpath = "(//strong[@class='o_kanban_record_title'])[25]")
     public WebElement appleWatch3;
 
     @FindBy (xpath = "//button[@data-toggle='dropdown']")
