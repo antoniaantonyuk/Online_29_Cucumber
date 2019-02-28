@@ -7,7 +7,7 @@ import org.junit.runner.RunWith;
 @CucumberOptions( plugin = {
         "json:target/cucumber.json",
         "html:target/default-cucumber-report"},
-        features ="src/test/resources/discuss/",
+        features ="src/test/resources/discuss/NewPublicChannel.feature",
         glue = "com/brite_erp/step_definitions/", dryRun = false, tags="@Antonia")
 
 

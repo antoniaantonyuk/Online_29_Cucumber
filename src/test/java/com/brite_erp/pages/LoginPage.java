@@ -29,6 +29,9 @@ import org.openqa.selenium.support.PageFactory;
         @FindBy(xpath = "//button[@type='submit']")
         public WebElement loginButton;
 
+        @FindBy(linkText = "Sing in")
+        public WebElement singIn;
+
 
 
         public void login(){

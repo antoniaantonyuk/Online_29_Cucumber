@@ -20,7 +20,7 @@ public class ProductsStepDefinitions {
     @Before
     public void user_on_the_homepage_page(){
         pages.login().open();
-        pages.chooseERP().rightERP.click();
+        //pages.chooseERP().rightERP.click();
         pages.login().login();
         BrowserUtils.wait(2);
         pages.purchasesMain().purchaseInMenu.click();

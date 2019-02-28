@@ -12,13 +12,15 @@ public class NewPublichChannel {
 
     @Given("User log in")
     public void user_log_in() {
-        pages.login().login();
-        BrowserUtils.wait(2);
+        pages.login().singIn.click();
+
+        //pages.login().login();
+
     }
 
     @Then("Create new chanell NewChannelToCheck")
     public void create_new_chanell(String arg1) {
-        pages.discussPage().channelsLink.click();
+
 
     }
 

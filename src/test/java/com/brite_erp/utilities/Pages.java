@@ -4,7 +4,7 @@ import com.brite_erp.pages.*;
 
 public class Pages {
     private LoginPage loginPage;
-    private ChooseERP chooseERP;
+    //private ChooseERP chooseERP;
     private DiscussPage discussPage;
     private PurchasesMain purchasesMain;
     private CreateChannelPage createChannelPage;
@@ -27,12 +27,12 @@ public class Pages {
         return loginPage;
     }
 
-    public ChooseERP chooseERP() {
-        if (chooseERP == null) {
-            chooseERP = new ChooseERP();
-        }
-        return chooseERP;
-    }
+   // public ChooseERP chooseERP() {
+     //   if (chooseERP == null) {
+       //     chooseERP = new ChooseERP();
+        //}
+        //return chooseERP;
+    //}
 
     public CreateChannelPage createChannelPage() {
         if (createChannelPage == null) {

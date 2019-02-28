@@ -22,7 +22,7 @@ public class DiscussPageTests  {
         @Given("open brite url")
         public void open_brite_url()  {
             pages.login().open();
-            pages.chooseERP().rightERP.click();
+            //pages.chooseERP().rightERP.click();
         }
 
         @When("login as purchase user")
