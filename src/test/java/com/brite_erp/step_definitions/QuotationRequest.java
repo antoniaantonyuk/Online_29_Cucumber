@@ -27,12 +27,14 @@ import static org.junit.Assert.assertEquals;
 public class QuotationRequest {
     private Pages pages=new Pages();
 
+    @Given("^user on the purchases page$")
     public void user_on_the_purchases_page() throws Throwable {
         pages.login().open();
         pages.chooseERP().rightERP.click();
         pages.login().login();
         BrowserUtils.wait(2);
         pages.purchasesMain().purchaseInMenu.click();
+
 
     }
     @Then("^total value shown at the bottom of the page should match with addition of all quote values$")
@@ -148,7 +150,7 @@ public class QuotationRequest {
     public void user_clicks_on_head(String arg1, String arg2, String arg3, String arg4, String arg5, String arg6, String arg7) throws Throwable {
 
          pages.quotationRequest().sort(arg1).click();
-              BrowserUtils.wait(1);
+         BrowserUtils.wait(1);
            pages.quotationRequest().sort(arg2).click();
         BrowserUtils.wait(1);
         pages.quotationRequest().sort(arg3).click();
@@ -170,11 +172,11 @@ public class QuotationRequest {
     }
 private String vendorName;
     @Then("^user fills out required information \"([^\"]*)\", \"([^\"]*)\", \"([^\"]*)\",\"([^\"]*)\"$")
-    public void user_fills_out_required_information(String vendor, String reference, String orderDate, String scheduledDate) throws Throwable {
+    public void user_fills_out_required_information(String vendorr, String reference, String orderDate, String scheduledDate) throws Throwable {
         Date d=new Date();
-       vendorName=vendor;
-       // pages.quotationRequest().VendorName.sendKeys(vendor,Keys.ENTER);
-        pages.quotationRequest().VendorName.sendKeys(vendor);
+       vendorName=vendorr;
+       // pages.quotationRequest().VendorName.sendKeys(vendorr,Keys.ENTER);
+        pages.quotationRequest().VendorName.sendKeys(vendorr);
         pages.quotationRequest().reference.sendKeys(reference,Keys.ENTER);
         BrowserUtils.wait(1);
         pages.quotationRequest().createVendor.click();

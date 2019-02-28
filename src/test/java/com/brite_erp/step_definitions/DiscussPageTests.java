@@ -39,6 +39,8 @@ public class DiscussPageTests  {
             pages.login().login();
         }
 
+
+
         @Then("check if Inbox is presented")
         public void check_if_Inbox_is_presented() throws InterruptedException {
             Thread.sleep(3000);
@@ -60,34 +62,41 @@ public class DiscussPageTests  {
 
         }
 
+    /**
+     * ziyoda
+     */
+    @When("login as inventory user")
+    public void login_as_inventory_user_and_password()  {
+        Pages pages = new Pages();
+        pages.login().loginAsInventory();
+    }
 
-        @Then("click on send direct message button")
-        public void click_on_send_direct_message_button() {
-            System.out.println("Mina sample");
-        }
+    @When("user successfully should see inbox folder on right menu")
+    public void user_should_see_inbox_on_right_side_menu() throws InterruptedException{
+        Thread.sleep(3000);
+        Pages pages = new Pages();
+        Assert.assertTrue(pages.discussPage().inboxLink.isDisplayed());
+    }
 
-        @Then("add other user")
-        public void add_other_user()  {System.out.println("Mina sample");
-        }
+    @When("click on inbox")
+    public void click_on_inbox() throws InterruptedException{
+        Thread.sleep(3000);
+        Pages pages = new Pages();
+       pages.discussPage().inboxLink.click();
+    }
 
-        @Then("select user in drop down menu")
-        public void select_user_in_drop_down_menu()  {System.out.println("Mina sample");
-        }
+    @When("inbox should successfully clickable")
+    public void inbox_should_successfully_clickable() throws InterruptedException{
+        Thread.sleep(3000);
+        Pages pages = new Pages();
+        Assert.assertTrue(pages.discussPage().inboxLink.isEnabled());
+    }
 
-        @Then("check if selected user is displayed")
-        public void check_if_selected_user_is_displayed()  {System.out.println("Mina sample");
-        }
-
-        @Then("delete the selected user")
-        public void delete_the_selected_user()  {
-            System.out.println("Mina sample");
-        }
-
-        @Then("check if user is deleted")
-        public void check_if_user_is_deleted()  {
-            System.out.println("Mina sample");
-
-        }
+    @When("the title on the page successfully should be inbox")
+    public void verify_page_title_as_inbox() throws InterruptedException{
+        Thread.sleep(3000);
+        Assert.assertEquals(Driver.getDriver().getTitle(), ApplicationConstants.APPLICATION_TITLE);
+    }
 
 
     }
