@@ -9,7 +9,7 @@ And check if Inbox is presented
 And open Inbox page
 Then check the page title
 
-<<<<<<< HEAD
+
 #Scenario: Send direct Message
 #Given open brite url
 #When login as purchase user
@@ -19,7 +19,7 @@ Then check the page title
 #And check if selected user is displayed
 #And delete the selected user
 #Then check if user is deleted
-=======
+
 #ziyoda
 Scenario: Inbox folder should be visible on right menu
 Given open brite url
@@ -37,7 +37,7 @@ Given open brite url
 When login as inventory user
 And click on inbox
 Then the title on the page successfully should be inbox
->>>>>>> master
+
 
 
 

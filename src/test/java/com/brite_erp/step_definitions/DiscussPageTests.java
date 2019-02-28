@@ -47,8 +47,7 @@ public class DiscussPageTests  {
         public void check_the_page_title()  {
             Assert.assertEquals(Driver.getDriver().getTitle(), ApplicationConstants.APPLICATION_TITLE);
 
-<<<<<<< HEAD
-=======
+
             Driver.closeDriver();
 
         }
@@ -82,7 +81,7 @@ public class DiscussPageTests  {
         Pages pages = new Pages();
         Assert.assertTrue(pages.discussPage().inboxLink.isEnabled());
     }
->>>>>>> master
+
 
     @When("the title on the page successfully should be inbox")
     public void verify_page_title_as_inbox() throws InterruptedException{
