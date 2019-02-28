@@ -14,6 +14,10 @@ import org.openqa.selenium.support.PageFactory;
             PageFactory.initElements(Driver.getDriver(), this);
         }
 
+
+        @FindBy(xpath="//b[contains(text(),'Sign in')]")
+        public WebElement signIn;
+
         @FindBy(id="login")
         public WebElement username;
 
@@ -32,6 +36,7 @@ import org.openqa.selenium.support.PageFactory;
 
 
         public void login(){
+            signIn.click();
             username.sendKeys(ConfigurationReader.getProperty("username"));
             password.sendKeys(ConfigurationReader.getProperty("password"));
             loginButton.click();

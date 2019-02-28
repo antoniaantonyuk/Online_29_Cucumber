@@ -30,7 +30,7 @@ public class QuotationRequest {
     @Given("^user on the purchases page$")
     public void user_on_the_purchases_page() throws Throwable {
         pages.login().open();
-        pages.chooseERP().rightERP.click();
+        //pages.chooseERP().rightERP.click();
         pages.login().login();
         BrowserUtils.wait(2);
         pages.purchasesMain().purchaseInMenu.click();

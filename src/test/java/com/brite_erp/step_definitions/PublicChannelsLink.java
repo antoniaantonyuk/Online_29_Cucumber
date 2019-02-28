@@ -14,7 +14,7 @@ public class PublicChannelsLink {
     @Given("User loged in")
     public void user_loged_in() {
         pages.login().open();
-        pages.chooseERP().rightERP.click();
+       // pages.chooseERP().rightERP.click();
         pages.login().login();
         BrowserUtils.wait(2);
     }

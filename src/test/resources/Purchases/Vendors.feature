@@ -42,7 +42,7 @@ Feature: VendorsPage
 
 
 ##BRIT-1571 //
-  @go
+
   Scenario: import a CSV or Excel file
    Then user clicks on import button
     Then user uploads data file excel file upload
@@ -56,7 +56,7 @@ Feature: VendorsPage
 
 
 ###BRIT-1689
-
+  @go
   Scenario: User should be able to sent an email to the vendors email address
     Then user clicks on 'Dont Touch' vendor
     Then clicks on oibekalim@gmail.com system should open default email fill requirement and send
