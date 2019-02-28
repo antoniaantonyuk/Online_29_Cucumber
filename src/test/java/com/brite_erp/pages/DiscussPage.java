@@ -13,6 +13,7 @@ import static com.brite_erp.utilities.ApplicationConstants.NEW_CHANNEL;
 
 public class DiscussPage extends Menu {
     public DiscussPage() {
+
         PageFactory.initElements(Driver.getDriver(), this);
     }
 
@@ -91,7 +92,7 @@ public class DiscussPage extends Menu {
     @FindBy(xpath = "(//div[@class='o_thread_message_content'])[14]")
     public WebElement starMessage;
 
-    @FindBy(xpath = "(//*[@data-message-id='6876'])[2]")
+    @FindBy(xpath = "(//span[@class='o_thread_icons'])[20]")
     public WebElement starMark;
 
     @FindBy(xpath = "//span[@class='o_mail_sidebar_needaction badge ']")

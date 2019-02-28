@@ -1,4 +1,5 @@
 
+@Run
 Feature: QuoteRequestPage
 
 
@@ -25,7 +26,7 @@ Feature: QuoteRequestPage
 #
 #
 ##brit 101,81
-  @Run
+
   Scenario: Manager should be able to print as a request for quotation
     Then user selects random quotes from the list
     And user can click on print tab and select print as a request for quotation option
@@ -53,7 +54,7 @@ Feature: QuoteRequestPage
       | Graph    |
       | Schedule |
 #
-#
+
 ##brit 321
 
   Scenario: Manager should be able to delete a quote
@@ -78,12 +79,12 @@ Feature: QuoteRequestPage
   Scenario Outline: Create a new quote
 
     Then user clicks on create button
-   Then user fills out required information "<Vendor>", "<Vendor Reference>", "<Order Date>","<Scheduled Date>"
-   Then user confirms the request
+    Then user fills out required information "<Vendor>", "<Vendor Reference>", "<Order Date>","<Scheduled Date>"
+    Then user confirms the request
 #
     Examples:
-      |Vendor       |Vendor Reference| Order Date |Scheduled Date|
-     |ADALET           |oz61            |02/18/2019  | 02/19/2019   |
-     |CyberTek     |glidali61            | 02/16/2019 | 02/24/2023   |
-      |JP           |glidali              | 02/18/2019 | 02/19/2021   |
+      | Vendor   | Vendor Reference | Order Date | Scheduled Date |
+      | ADALET   | oz61             | 02/18/2019 | 02/19/2019     |
+      | CyberTek | glidali61        | 02/16/2019 | 02/24/2023     |
+      | JP       | glidali          | 02/18/2019 | 02/19/2021     |
 #
