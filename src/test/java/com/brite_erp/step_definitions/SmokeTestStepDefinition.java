@@ -16,11 +16,15 @@ import static org.junit.Assert.assertEquals;
 public class SmokeTestStepDefinition {
 
   protected Pages pages=new Pages();
+
+
+
   @Given("^user on the home page$")
   public void user_on_the_home_page() throws Throwable {
     // Write code here that turns the phrase above into concrete actions
     pages.login().open();
   }
+
 
   @When("^user click on BriteErpDemo option$")
   public void user_click_on_BriteErpDemo_option() throws Throwable {

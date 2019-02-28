@@ -1,3 +1,4 @@
+
 @Run
 Feature: QuoteRequestPage
 
@@ -78,12 +79,12 @@ Feature: QuoteRequestPage
   Scenario Outline: Create a new quote
 
     Then user clicks on create button
-   Then user fills out required information "<Vendor>", "<Vendor Reference>", "<Order Date>","<Scheduled Date>"
-   Then user confirms the request
+    Then user fills out required information "<Vendor>", "<Vendor Reference>", "<Order Date>","<Scheduled Date>"
+    Then user confirms the request
 #
     Examples:
-      |Vendor       |Vendor Reference| Order Date |Scheduled Date|
-     |ADALET           |oz61            |02/18/2019  | 02/19/2019   |
-     |CyberTek     |glidali61            | 02/16/2019 | 02/24/2023   |
-      |JP           |glidali              | 02/18/2019 | 02/19/2021   |
+      | Vendor   | Vendor Reference | Order Date | Scheduled Date |
+      | ADALET   | oz61             | 02/18/2019 | 02/19/2019     |
+      | CyberTek | glidali61        | 02/16/2019 | 02/24/2023     |
+      | JP       | glidali          | 02/18/2019 | 02/19/2021     |
 #
