@@ -7,15 +7,10 @@ import org.junit.runner.RunWith;
 @CucumberOptions( plugin = {
         "json:target/cucumber.json",
         "html:target/default-cucumber-report"},
-<<<<<<< HEAD
         features ="src/test/resources/discuss/",
-        glue = "com/brite_erp/step_definitions/", dryRun = false)
-=======
-        features ="src/test/resources/discuss",
-        glue = "com/brite_erp/step_definitions/", dryRun = false
-        ,  tags = "@mina")
+        glue = "com/brite_erp/step_definitions/", dryRun = false, tags="@Antonia")
 
->>>>>>> master
+
 public class DiscussRunner {
 
 }
