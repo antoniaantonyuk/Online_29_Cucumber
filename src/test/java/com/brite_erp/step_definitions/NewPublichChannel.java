@@ -12,7 +12,7 @@ public class NewPublichChannel {
 
     @Given("User log in")
     public void user_log_in() {
-        pages.login().singIn.click();
+        //pages.login().singIn.click();
 
         //pages.login().login();
 
