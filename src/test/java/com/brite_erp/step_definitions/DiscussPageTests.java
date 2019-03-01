@@ -1,19 +1,10 @@
 package com.brite_erp.step_definitions;
 
-import com.brite_erp.pages.ChooseERP;
-import com.brite_erp.pages.DiscussPage;
-import com.brite_erp.pages.LoginPage;
 import com.brite_erp.utilities.*;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
-import io.github.bonigarcia.wdm.WebDriverManager;
 import org.junit.Assert;
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
-
-import java.util.concurrent.TimeUnit;
 
 public class DiscussPageTests  {
 
@@ -22,7 +13,7 @@ public class DiscussPageTests  {
         @Given("open brite url")
         public void open_brite_url()  {
             pages.login().open();
-            pages.chooseERP().rightERP.click();
+           // pages.chooseERP().rightERP.click();
         }
 
         @When("login as purchase user")

@@ -1,6 +1,6 @@
-@mina
-Feature: Direct Message Functionality
 
+Feature: Direct Message Functionality
+  @mina
 Scenario: add other user to direct Message list
   Given open brite url
   When login as purchase user

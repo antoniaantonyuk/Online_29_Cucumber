@@ -27,12 +27,12 @@ public class Pages {
         return loginPage;
     }
 
-    public ChooseERP chooseERP() {
+   /* public ChooseERP chooseERP() {
         if (chooseERP == null) {
             chooseERP = new ChooseERP();
         }
         return chooseERP;
-    }
+    }*/
 
     public CreateChannelPage createChannelPage() {
         if (createChannelPage == null) {

@@ -17,14 +17,7 @@ public class ProductsStepDefinitions {
 
     private Pages pages=new Pages();
 
-    @Before
-    public void user_on_the_homepage_page(){
-        pages.login().open();
-        pages.chooseERP().rightERP.click();
-        pages.login().login();
-        BrowserUtils.wait(2);
-        pages.purchasesMain().purchaseInMenu.click();
-            }
+
 
     @Given("^user on the products page$")
     public void user_on_the_products_page()  {

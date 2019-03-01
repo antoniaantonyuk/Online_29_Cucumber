@@ -1,6 +1,6 @@
 
 
-@Run
+
 Feature: QuoteRequestPage
 
 
@@ -8,7 +8,7 @@ Feature: QuoteRequestPage
     Given user on the purchases page
 
   #brit74
-
+  @Runnn
   Scenario: total amount shown bottom of the table matches with all individual quote prices added together.
     Then total value shown at the bottom of the page should match with addition of all quote values
 

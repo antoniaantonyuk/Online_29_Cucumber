@@ -29,7 +29,7 @@ public class SmokeTestStepDefinition {
   @When("^user click on BriteErpDemo option$")
   public void user_click_on_BriteErpDemo_option() throws Throwable {
     // Write code here that turns the phrase above into concrete actions
-    pages.chooseERP().rightERP.click();
+    //pages.chooseERP().rightERP.click();
   }
 
   @Then("^user logs in wrong password \"([^\"]*)\" and \"([^\"]*)\"$")

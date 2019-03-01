@@ -86,9 +86,9 @@ public class QuotationRequest {
 
     @Then("^user selects exporting options by double clicking on them$")
     public void user_selects_exporting_options_by_double_clicking_on_them() throws Throwable {
-        pages.browserUtils().doubleClick(pages.quotationRequest().companyadd);
-        pages.browserUtils().doubleClick(pages.quotationRequest().currency);
-        pages.browserUtils().doubleClick(pages.quotationRequest().orderDateadd);
+        BrowserUtils.doubleClick(pages.quotationRequest().companyadd);
+        BrowserUtils.doubleClick(pages.quotationRequest().currency);
+        BrowserUtils.doubleClick(pages.quotationRequest().orderDateadd);
     }
 
     @Then("^user clicks on export to File button$")
