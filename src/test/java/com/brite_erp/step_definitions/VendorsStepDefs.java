@@ -85,7 +85,7 @@ pages.vendors().importVendor.click();
    // BrowserUtils.verifyElementDisplayed(pages.vendors().loadFile);
 
 
-String path = ".\\src\\test\\resources\\cvs\\SalesJan2009.csv";
+String path = ".\\src\\test\\resources\\test-data\\SalesJan2009.csv";
         Driver.getDriver().findElement(By.name("file")).sendKeys(path);
         //pages.vendors().loadFile.sendKeys(path);
         BrowserUtils.wait(5);

@@ -21,7 +21,7 @@ public class Hooks {
        // driver = Driver.getDriver();
         Driver.getDriver().manage().timeouts().implicitlyWait(13, TimeUnit.SECONDS);
         Driver.getDriver().manage().window().maximize();
-        /*driver.get(ConfigurationReader.getProperty("url"));
+       /* driver.get(ConfigurationReader.getProperty("url"));
         Thread.sleep(15000);*/
     }
 
