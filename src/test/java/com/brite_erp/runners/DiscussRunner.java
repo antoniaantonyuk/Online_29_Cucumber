@@ -11,7 +11,6 @@ import org.junit.runner.RunWith;
         features ="src/test/resources/discuss",
         glue = "com/brite_erp/step_definitions/", dryRun = false , tags = "@Antonia")
 
-
 public class DiscussRunner {
 
 }

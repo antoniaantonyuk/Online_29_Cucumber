@@ -1,10 +1,19 @@
 package com.brite_erp.step_definitions;
 
+
+import com.brite_erp.pages.DiscussPage;
+import com.brite_erp.pages.LoginPage;
 import com.brite_erp.utilities.*;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
+import io.github.bonigarcia.wdm.WebDriverManager;
 import org.junit.Assert;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+import java.util.concurrent.TimeUnit;
 
 public class DiscussPageTests  {
 
@@ -13,7 +22,6 @@ public class DiscussPageTests  {
         @Given("open brite url")
         public void open_brite_url()  {
             pages.login().open();
-           // pages.chooseERP().rightERP.click();
         }
 
         @When("login as purchase user")
@@ -37,6 +45,8 @@ public class DiscussPageTests  {
         @Then("check the page title")
         public void check_the_page_title()  {
             Assert.assertEquals(Driver.getDriver().getTitle(), ApplicationConstants.APPLICATION_TITLE);
+
+
             Driver.closeDriver();
 
         }
@@ -70,7 +80,6 @@ public class DiscussPageTests  {
         Pages pages = new Pages();
         Assert.assertTrue(pages.discussPage().inboxLink.isEnabled());
     }
-
 
     @When("the title on the page successfully should be inbox")
     public void verify_page_title_as_inbox() throws InterruptedException{

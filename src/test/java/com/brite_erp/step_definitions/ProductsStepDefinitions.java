@@ -1,6 +1,5 @@
 package com.brite_erp.step_definitions;
 
-import com.brite_erp.pages.PurchasesMain;
 import com.brite_erp.utilities.ApplicationConstants;
 import com.brite_erp.utilities.BrowserUtils;
 import com.brite_erp.utilities.Driver;
@@ -17,7 +16,6 @@ public class ProductsStepDefinitions {
 
 
     private Pages pages=new Pages();
-
 
 
     @Given("^user on the products page$")

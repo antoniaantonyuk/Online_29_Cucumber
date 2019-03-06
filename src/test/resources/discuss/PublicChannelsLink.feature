@@ -5,7 +5,7 @@ Feature: User should be able to see public channels
    Given User loged in
 
 #BRIT-1844
-Scenario: user should see link Channels.
+Scenario: user should see link Channels
 Then Check if Channels is visible
 Then Check if Channels is clickable
 
