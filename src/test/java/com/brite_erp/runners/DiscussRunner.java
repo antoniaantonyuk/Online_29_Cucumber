@@ -9,8 +9,7 @@ import org.junit.runner.RunWith;
         "html:target/default-cucumber-report"},
 
         features ="src/test/resources/discuss",
-        glue = "com/brite_erp/step_definitions/", dryRun = false
-        ,  tags = "@mina")
+        glue = "com/brite_erp/step_definitions/", dryRun = false , tags = "@Antonia")
 
 
 public class DiscussRunner {

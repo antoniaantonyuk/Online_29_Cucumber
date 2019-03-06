@@ -1,7 +1,7 @@
 Feature: Discuss Module should work properly
 
 
-#@smoke
+@Antonia
 Scenario: Check if link "Inbox" exists
 Given open brite url
 When login as purchase user

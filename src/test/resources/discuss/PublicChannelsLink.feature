@@ -1,3 +1,4 @@
+@Antonia
 Feature: User should be able to see public channels
 
  Background:
