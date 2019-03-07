@@ -120,6 +120,14 @@ public class DiscussPage extends Menu {
     @FindBy(xpath = "//*[@class='oe_module_vignette oe_kanban_global_click o_kanban_record']" )
     public WebElement channelBlock;
 
+    @FindBy(css = "span[class='fa fa-plus o_add'][data-type='public']")
+    public WebElement plusButtonPublicChannel;
+
+    @FindBy(css="input[class='o_input ui-autocomplete-input'][placeholder='Add a channel']")
+    public  WebElement fieldForPublicChannelName;
+
+    @FindBy(partialLinkText = "Create")
+    public WebElement approvCreationPublicChannel;
 
 
 

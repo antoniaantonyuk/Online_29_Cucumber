@@ -4,6 +4,7 @@ import com.brite_erp.pages.*;
 
 public class Pages {
     private LoginPage loginPage;
+
     private DiscussPage discussPage;
     private PurchasesMain purchasesMain;
     private CreateChannelPage createChannelPage;
@@ -25,7 +26,7 @@ public class Pages {
         }
         return loginPage;
     }
-    public CreateChannelPage createChannelPage() {
+public CreateChannelPage createChannelPage() {
         if (createChannelPage == null) {
             createChannelPage = new CreateChannelPage();
         }
