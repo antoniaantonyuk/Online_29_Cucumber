@@ -21,7 +21,7 @@ public class ExcelUtilities {
     public static void main(String[] args) {
 
         // this is for just testing purpose. You can check to see if intellij reads your table
-        ExcelUtilities excelObject=new ExcelUtilities("C:\\Users\\oozturk\\Desktop\\trying.xlsx","Sheet1");
+        ExcelUtilities excelObject=new ExcelUtilities(".\\src\\test\\resources\\test-data\\Brite-ERP_system.xlsx","Users BRITE ERP");
 
         System.out.println(excelObject.columnCount());
         System.out.println(excelObject.rowCount());

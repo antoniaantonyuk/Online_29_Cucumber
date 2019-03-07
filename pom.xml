@@ -59,7 +59,10 @@
                     <include>**/*DiscussRunner.java</include>
                     <include>**/*PurchasesRunner.java</include>
                 </includes>
+                <parallel>both</parallel>
+                <threadCount>10</threadCount>
             </configuration>
+
         </plugin>
         <plugin>
             <groupId>net.masterthought</groupId>
