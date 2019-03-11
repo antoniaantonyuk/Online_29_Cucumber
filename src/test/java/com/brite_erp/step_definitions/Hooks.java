@@ -1,6 +1,7 @@
 package com.brite_erp.step_definitions;
 
 import com.brite_erp.utilities.ConfigurationReader;
+import com.brite_erp.utilities.DBUtilities;
 import com.brite_erp.utilities.Driver;
 import com.brite_erp.utilities.Pages;
 import cucumber.api.Scenario;
@@ -38,4 +39,17 @@ public class Hooks {
 
         Driver.closeDriver();
     }
+
+   // @Before(value = "@dbb")
+    @Before(value = "@db")
+    public void setUpDBConnection(){
+        DBUtilities.createConnection();
+    }
+
+ //   @After(value = "dbb")
+    @After(value = "@db")
+    public void closeDBConnection(){
+        DBUtilities.closeConnection();
+    }
+
 }

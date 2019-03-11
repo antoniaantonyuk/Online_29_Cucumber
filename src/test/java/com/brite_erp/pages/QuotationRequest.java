@@ -11,6 +11,7 @@ import org.openqa.selenium.support.PageFactory;
 import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 public class QuotationRequest {
 
@@ -28,6 +29,11 @@ public class QuotationRequest {
 
     @FindBy(xpath = "//a[contains(text(),'Deliveries')]")
     public WebElement deliveriesTab;
+
+    @FindBy(xpath = "(//button[contains(text(),'Save')])[1]")
+    public WebElement Save;
+    @FindBy(xpath = "//a[contains(text(),'Products')]")
+    public WebElement ProductsTab;
 
     @FindBy(css = "input[name*='date_order']")
     public WebElement orderDate;
@@ -56,11 +62,17 @@ public class QuotationRequest {
     @FindBy(xpath = "//button[contains(text(),'Create')]")
     public WebElement create;
 
+    @FindBy(xpath = "//button[contains(text(),'Edit')]")
+    public WebElement edit;
+
+
     @FindBy(xpath = "(//div[@class='btn-group']//ul//li)[2]")
     public WebElement RequestForQuotationPrint;
 
     @FindBy(xpath = "//span[.='Create']")
     public WebElement createVendor;
+
+
 
 
     @FindBy(xpath = "(//tbody/tr/td)[2]/a")
@@ -82,11 +94,20 @@ public class QuotationRequest {
     @FindBy(xpath = "//span[.='Company']")
     public WebElement companyadd;
 
+    @FindBy(xpath = "//a[contains(text(),'Add an item')]")
+    public WebElement AddItem;
+
+    @FindBy(xpath = "//div[@name='product_id']//input[@class='o_input ui-autocomplete-input']")
+    public WebElement AddProductid;
+
     @FindBy(xpath = "//span[.='Currency']")
     public WebElement currency;
 
     @FindBy(name = "name")
     public WebElement quotename;
+
+    @FindBy(xpath = "//thead/tr/th[2]")
+    public WebElement SortByRef;
 
     @FindBy(xpath = "//span[.='Order Date']")
     public WebElement orderDateadd;
@@ -161,6 +182,19 @@ public class QuotationRequest {
         return prices;
     }
 
+    public List<String> getRows()
+    {
+        List<WebElement> tableData=Driver.getDriver().findElements(By.xpath("//table/tbody/tr/td[2]"));
+
+        List<String> RefNames=new ArrayList<>();
+        for (WebElement a: tableData) {
+            RefNames.add(a.getText());
+        }
+
+        return RefNames;
+    }
+
+
     public double getTotalAmount( List<Double> prices)
     {
         double priceTotal=0;
@@ -181,6 +215,12 @@ public class QuotationRequest {
     {
         Driver.getDriver().findElement(By.xpath("//table//tbody//tr["+row+"]//td[1]")).click();
         return Driver.getDriver().findElement(By.xpath("//table//tbody//tr["+row+"]//td[7]"));
+    }
+
+    public void OpenAQuote(int row)
+    {
+        Driver.getDriver().findElement(By.xpath("//table//tbody//tr["+row+"]")).click();
+     //   return Driver.getDriver().findElement(By.xpath("//table//tbody//tr["+row+"]"));
     }
 
 //    public WebElement OpenQuoteDetails(int row)

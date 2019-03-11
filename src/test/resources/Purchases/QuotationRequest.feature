@@ -8,7 +8,7 @@ Feature: QuoteRequestPage
     Given user on the purchases page
 
   #brit74
-  @Runnn
+
   Scenario: total amount shown bottom of the table matches with all individual quote prices added together.
     Then total value shown at the bottom of the page should match with addition of all quote values
 
@@ -41,7 +41,7 @@ Feature: QuoteRequestPage
     Then user clicks on export to File button
 #
 #
-##brit 115
+
 
   Scenario Outline: Change the view of the page
     And user click on "<view>" view
@@ -49,11 +49,11 @@ Feature: QuoteRequestPage
    # Then user confirms that selected view is enabled
     Examples:
       | view     |
-      | List     |
-      | Kanban   |
-      | Pivot    |
-      | Graph    |
-      | Schedule |
+      | list     |
+      | kanban   |
+      | pivot    |
+      | graph    |
+      | schedule |
 #
 
 ##brit 321
@@ -85,7 +85,8 @@ Feature: QuoteRequestPage
 #
     Examples:
       |Vendor       |Vendor Reference| Order Date |Scheduled Date|
-     |ADALET           |oz61            |02/18/2019  | 02/19/2019   |
+     |ADALET           |oz6161            |02/18/2019  | 02/20/2019   |
      |CyberTek     |glidali61            | 02/16/2019 | 02/24/2023   |
       |JP           |glidali              | 02/18/2019 | 02/19/2021   |
-#
+
+

@@ -1,12 +1,11 @@
 package com.brite_erp.step_definitions;
 
-import com.brite_erp.utilities.BrowserUtils;
-import com.brite_erp.utilities.ConfigurationReader;
-import com.brite_erp.utilities.Driver;
-import com.brite_erp.utilities.Pages;
+import com.brite_erp.utilities.*;
 import com.gargoylesoftware.htmlunit.html.ScriptElement;
 import com.github.javafaker.Faker;
+
 import com.sun.jna.platform.win32.OaIdl;
+import com.sun.xml.internal.bind.v2.TODO;
 import cucumber.api.PendingException;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
@@ -18,7 +17,10 @@ import org.openqa.selenium.Keys;
 import org.openqa.selenium.support.ui.Select;
 import javax.jws.soap.SOAPBinding;
 
+import java.security.Key;
 import java.util.Date;
+import java.util.List;
+import java.util.Map;
 import java.util.Random;
 import java.util.concurrent.TimeUnit;
 
@@ -34,9 +36,8 @@ public class QuotationRequest {
         pages.login().login();
         BrowserUtils.wait(2);
         pages.purchasesMain().purchaseInMenu.click();
+   }
 
-
-    }
     @Then("^total value shown at the bottom of the page should match with addition of all quote values$")
     public void total_value_shown_at_the_bottom_of_the_page_should_match_with_addition_of_all_quote_values() throws Throwable {
         double money= pages.quotationRequest().getTotalAmount(pages.quotationRequest().indvPrices());
@@ -100,11 +101,7 @@ public class QuotationRequest {
 
     @Then("^user click on \"([^\"]*)\" view$")
     public void user_click_on_view(String view) throws Throwable {
-        pages.quotationRequest().ChangeView("list").click();
-        pages.quotationRequest().ChangeView("kanban").click();
-        pages.quotationRequest().ChangeView("pivot").click();
-        pages.quotationRequest().ChangeView("graph").click();
-        pages.quotationRequest().ChangeView("calendar").click();
+        pages.quotationRequest().ChangeView(view).click();
 
     }
     @Then("^user clicks on the quote he wants to delete$")
@@ -200,5 +197,6 @@ private String vendorName;
         Assert.assertEquals(pages.quotationRequest().confirmVendorName.getText(),vendorName);
 
     }
+
 
 }
