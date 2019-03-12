@@ -129,7 +129,9 @@ public class QuotationRequest {
         pages.quotationRequest().ActionTabOnDetails.click();
         pages.quotationRequest().deleteOnDetails.click();
 
+
     }
+
 
     @Then("^user confirms the delete$")
     public void user_confirms_the_delete() throws Throwable {

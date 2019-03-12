@@ -22,7 +22,7 @@ public class QuotationRequest_Excel_DB_StepDefs {
     Random rndm=new Random();
     @When("^user opens random quote$")
     public void user_opens_random_quote() throws Throwable {
-        int randomRow=rndm.nextInt(pages.quotationRequest().requestCount.size());
+        int randomRow=1+rndm.nextInt(pages.quotationRequest().requestCount.size());
         pages.quotationRequest().OpenAQuote(randomRow);
     }
     Date d=new Date();
@@ -43,6 +43,7 @@ public class QuotationRequest_Excel_DB_StepDefs {
             pages.quotationRequest().VendorName.clear();
             pages.quotationRequest().VendorName.sendKeys(vendor);
             vendorRef=myData.get(i).get("VendorReference");
+            pages.quotationRequest().reference.clear();
             pages.quotationRequest().reference.sendKeys(vendorRef, Keys.ENTER);
             BrowserUtils.wait(1);
             TODO:
@@ -71,13 +72,28 @@ public class QuotationRequest_Excel_DB_StepDefs {
             //pages.quotationRequest().ProductsTab.click();
             pages.quotationRequest().save.click();
             BrowserUtils.wait(2);
-            Assert.assertEquals(pages.quotationRequest().confirmVendorName.getText(),vendor);
+            Assert.assertTrue(vendor.contains(pages.quotationRequest().confirmVendorName.getText()));
             pages.quotationRequest().edit.click();
 
         }
     }
-    @Then("^PO should be updated on DB$")
-    public void po_should_be_updated_on_DB() throws Throwable {
+
+    @When("^user successfully creates new PO$")
+    public void user_successfully_creates_new_PO() throws Throwable {
+       user_creates_new_PO();
+        pages.quotationRequest().edit.click();
+        ExcelUtilities excelObject=new ExcelUtilities("C:\\Users\\oozturk\\Documents\\parallel-multi-browser-testng-framework\\Online_29_Cucumber\\src\\test\\resources\\test-data\\Brite-ERP_system.xlsx","Purchases");
+
+        List<Map<String,String>> myData=excelObject.getDataList();
+        pages.quotationRequest().scheduledDate.click();
+        String schduledDate=myData.get(4).get("Purchase Date");
+        System.out.println(schduledDate);
+        //pages.quotationRequest().scheduledDate.clear();
+        String date=convertDate(schduledDate)+" "+d.getHours()+":"+d.getMinutes()+":"+d.getSeconds();
+        pages.quotationRequest().scheduledDate.sendKeys(date, Keys.ENTER);
+        // Driver.getDriver().findElement(By.name("action_set_date_planned")).click();
+        //pages.quotationRequest().ProductsTab.click();
+        pages.quotationRequest().save.click();
 
     }
 
@@ -146,7 +162,7 @@ public class QuotationRequest_Excel_DB_StepDefs {
         //pages.quotationRequest().scheduledDate.clear();
         String date=convertDate(schduledDate)+" "+d.getHours()+":"+d.getMinutes()+":"+d.getSeconds();
         pages.quotationRequest().scheduledDate.sendKeys(date, Keys.ENTER);
-        pages.quotationRequest().confirmOrder.click();
+        pages.quotationRequest().save.click();
 
     }
 
@@ -159,6 +175,30 @@ public class QuotationRequest_Excel_DB_StepDefs {
         List<Object> partner_ref = DBUtilities.getColumnData(query, "partner_ref");
         System.out.println(partner_ref.toString());
         Assert.assertTrue(partner_ref.get(0).toString().contains(vendorRef));
+    }
+
+    String quoteName;
+    @Then("^user deletes a quote$")
+    public void user_deletes_a_quote() throws Throwable {
+
+        quoteName=Driver.getDriver().findElement(By.xpath("//span[@name='name']")).getText();
+        System.out.println(quoteName);
+        QuotationRequest quotationRequest=new QuotationRequest();
+        quotationRequest.user_clicks_on_cancel_button();
+        quotationRequest.user_clicks_on_action_tab_and_selects_delete_option();
+        Driver.getDriver().findElement(By.xpath("//span[contains(text(),'Ok')]")).click();
+    }
+
+    @Then("^new PO should be removed from db$")
+    public void new_PO_should_be_removed_from_db() throws Throwable {
+
+        String query="Select * from purchase_order " +
+                "where name='"+quoteName+"';";
+        BrowserUtils.wait(2);
+       int count= DBUtilities.getQueryResultList(query).size();
+
+        Assert.assertEquals(count,0);
+        System.out.println("Item is deleted successfully");
     }
 
 

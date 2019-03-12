@@ -23,8 +23,15 @@ Feature: reading data from Excel and confirming changes with DB
     When user on Purchase Orders Page
     When user creates new PO
     Then new PO should be added to DB
+
+ Scenario: Confirms PO is removed
+    When user opens random quote
+    Then user deletes a quote
+    Then new PO should be removed from db
+
   @db
-# Scenario: Confirms PO is removed
-#    When user selects random quotes from the list
-#    Then user deletes a quote
-#    Then new PO should be removed from db
+  Scenario: add a new request and delete it
+    When user successfully creates new PO
+    Then new PO should be added to DB
+    Then user deletes a quote
+    Then new PO should be removed from db
