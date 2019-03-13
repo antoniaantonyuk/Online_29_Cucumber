@@ -1,5 +1,6 @@
 package com.brite_erp.utilities;
 
+import com.github.javafaker.Faker;
 import org.apache.poi.ss.usermodel.Cell;
 import org.apache.poi.ss.usermodel.Row;
 import org.apache.poi.xssf.usermodel.XSSFCell;
@@ -21,10 +22,24 @@ public class ExcelUtilities {
     public static void main(String[] args) {
 
         // this is for just testing purpose. You can check to see if intellij reads your table
+      
+// PAY ATTENTION
         ExcelUtilities excelObject=new ExcelUtilities("./src/test/resources/test-data/repairsdata.xlsx","Sheet1");
+// PAY ATTENTION
+        ExcelUtilities excelObject=new ExcelUtilities("C:\\Users\\oozturk\\Documents\\parallel-multi-browser-testng-framework\\Online_29_Cucumber\\src\\test\\resources\\test-data\\Brite-ERP_system.xlsx","Purchases");
+
 
         System.out.println(excelObject.columnCount());
         System.out.println(excelObject.rowCount());
+        Faker faker=new Faker();
+
+        for (int i=1;i<15;i++) {
+            String fake=faker.company().name();
+
+            //excelObject.setCellData(fake.substring(fake.length()/3,fake.length()), i, 1);
+            fake=faker.pokemon().name();
+            excelObject.setCellData(fake, i, 2);
+        }
     }
     private XSSFSheet workSheet;
     private XSSFWorkbook workBook;
@@ -137,4 +152,6 @@ public class ExcelUtilities {
     public int rowCount() {
         return workSheet.getPhysicalNumberOfRows();
     }
+
+
 }
