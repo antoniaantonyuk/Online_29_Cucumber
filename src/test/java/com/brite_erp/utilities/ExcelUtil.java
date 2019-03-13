@@ -1,58 +1,44 @@
 package com.brite_erp.utilities;
 
-import org.apache.poi.ss.usermodel.Cell;
-import org.apache.poi.ss.usermodel.Row;
-import org.apache.poi.xssf.usermodel.XSSFCell;
-import org.apache.poi.xssf.usermodel.XSSFRow;
-import org.apache.poi.xssf.usermodel.XSSFSheet;
-import org.apache.poi.xssf.usermodel.XSSFWorkbook;
-
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public class ExcelUtilities {
+import org.apache.poi.ss.usermodel.*;
+import org.testng.Assert;
+public class ExcelUtil {
 
 
-    public static void main(String[] args) {
-
-        // this is for just testing purpose. You can check to see if intellij reads your table
-        ExcelUtilities excelObject=new ExcelUtilities("./src/test/resources/test-data/repairsdata.xlsx","Sheet1");
-
-        System.out.println(excelObject.columnCount());
-        System.out.println(excelObject.rowCount());
-    }
-    private XSSFSheet workSheet;
-    private XSSFWorkbook workBook;
+    private Sheet workSheet;
+    private Workbook workBook;
     private String path;
 
-    public ExcelUtilities(String path, String sheetName) {
+    public ExcelUtil(String path, String sheetName) {
         this.path = path;
         try {
             // Open the Excel file
             FileInputStream ExcelFile = new FileInputStream(path);
             // Access the required test data sheet
-            workBook = new XSSFWorkbook(ExcelFile);
+            workBook = WorkbookFactory.create(ExcelFile);
             workSheet = workBook.getSheet(sheetName);
+            Assert.assertNotNull(workSheet, "Worksheet: \"" + sheetName + "\" was not found\n");
 
-        } catch (IOException e) {
+        } catch (Exception e) {
             throw new RuntimeException(e);
         }
     }
 
     public String getCellData(int rowNum, int colNum) {
-        XSSFCell cell;
+        Cell cell;
         try {
             cell = workSheet.getRow(rowNum).getCell(colNum);
             String cellData = cell.toString();
             return cellData;
         } catch (Exception e) {
-            e.printStackTrace();
-            return "";
+            throw new RuntimeException(e);
         }
     }
 
@@ -60,7 +46,7 @@ public class ExcelUtilities {
 
         String[][] data = new String[rowCount()][columnCount()];
 
-        for (int i = 0; i <rowCount(); i++) {
+        for (int i = 0; i < rowCount(); i++) {
             for (int j = 0; j < columnCount(); j++) {
                 String value = getCellData(i, j);
                 data[i][j] = value;
@@ -70,18 +56,18 @@ public class ExcelUtilities {
 
     }
 
-    public List<Map<String, String>> getDataList() {
+    public List <Map <String, String>> getDataList() {
         // get all columns
         List<String> columns = getColumnsNames();
         // this will be returned
-        List<Map<String, String>> data = new ArrayList<>();
+        List<Map<String, String>> data = new ArrayList <>();
 
         for (int i = 1; i < rowCount(); i++) {
             // get each row
             Row row = workSheet.getRow(i);
             // create map of the row using the column and value
             // column map key, cell value --> map bvalue
-            Map<String, String> rowMap = new HashMap<String, String>();
+            Map<String, String> rowMap = new HashMap <String, String>();
             for (Cell cell : row) {
                 int columnIndex = cell.getColumnIndex();
                 rowMap.put(columns.get(columnIndex), cell.toString());
@@ -103,8 +89,8 @@ public class ExcelUtilities {
     }
 
     public void setCellData(String value, int rowNum, int colNum) {
-        XSSFCell cell;
-        XSSFRow row;
+        Cell cell;
+        Row row;
 
         try {
             row = workSheet.getRow(rowNum);
@@ -135,6 +121,7 @@ public class ExcelUtilities {
     }
 
     public int rowCount() {
-        return workSheet.getPhysicalNumberOfRows();
+        return workSheet.getLastRowNum() + 1;
     }
+
 }
